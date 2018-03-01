@@ -64,7 +64,7 @@ void freeNodes(particle_node_t* destroyNode);
 void putInSquare(particle_t *particle);
 void applyForces(particle_t *particle);
 
-void apply_force( particle_t &particle, particle_t &neighbor );
+void apply_force( particle_t *particle, particle_t *neighbor );
 void move( particle_t &p );
 
 //

@@ -42,7 +42,9 @@ int main( int argc, char **argv )
         int y;
         y = static_cast<int>(std::floor(particles[0].y / (sqrt(0.0005 * n ) / 100)));
 
-        printf("paticle zero in square {%d, %d}", x, y);
+        //printf("\nparticle zero in square {%d, %d}", x, y);
+        //printf("\nparticle zero has speed{%g, %g}", particles[0].vx, particles[0].vy);
+        printf("\nparticle zero has acc {%g, %g}", particles[0].ax, particles[0].ax);
 
         if(step > 0) clearEnvironment();
         //
@@ -53,6 +55,7 @@ int main( int argc, char **argv )
         }
         //Barrier
         for(int i = 0; i < n; i++){
+
             applyForces(&particles[i]);
         }
         //Barrier
@@ -70,7 +73,7 @@ int main( int argc, char **argv )
     }
     simulation_time = read_timer( ) - simulation_time;
 
-    printf( "n = %d, simulation time = %g seconds\n", n, simulation_time );
+    printf( "\nn = %d, simulation time = %g seconds\n", n, simulation_time );
 
     free( particles );
     if( fsave )

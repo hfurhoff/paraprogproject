@@ -6,9 +6,9 @@
 
 #IncludeRegexTransform: 
 
-/cygdrive/d/paraProg/project/fuckclion/common.h
+/cygdrive/c/Users/pete_/Documents/KTH/Programmering Parallella System/C Kod/paraprogproject/common.h
 
-/cygdrive/d/paraProg/project/fuckclion/commonordon.cpp
+/cygdrive/c/Users/pete_/Documents/KTH/Programmering Parallella System/C Kod/paraprogproject/commonordon.cpp
 stdlib.h
 -
 stdio.h
@@ -26,9 +26,9 @@ time.h
 sys/time.h
 -
 common.h
-/cygdrive/d/paraProg/project/fuckclion/common.h
+/cygdrive/c/Users/pete_/Documents/KTH/Programmering Parallella System/C Kod/paraprogproject/common.h
 
-/cygdrive/d/paraProg/project/fuckclion/serialordon.cpp
+/cygdrive/c/Users/pete_/Documents/KTH/Programmering Parallella System/C Kod/paraprogproject/serialordon.cpp
 stdlib.h
 -
 stdio.h
@@ -38,5 +38,5 @@ assert.h
 math.h
 -
 common.h
-/cygdrive/d/paraProg/project/fuckclion/common.h
+/cygdrive/c/Users/pete_/Documents/KTH/Programmering Parallella System/C Kod/paraprogproject/common.h
 
