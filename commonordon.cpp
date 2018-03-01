@@ -17,7 +17,7 @@ square_t *previousSquares[1000];
 int squareCounter = 0;
 
 //
-//  tuned constants
+//  tuned constantsss
 //
 #define density 0.0005
 #define mass    0.01
