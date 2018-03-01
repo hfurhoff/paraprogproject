@@ -11,7 +11,7 @@ const int NSTEPS = 1000;
 const int SAVEFREQ = 10;
 
 //
-// particle data structureee
+// particle data structure
 //
 typedef struct
 {

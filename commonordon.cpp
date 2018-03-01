@@ -43,7 +43,7 @@ double read_timer( )
 }
 
 //
-//  keep density constant
+//  keep density konstant
 //
 void set_size( int n )
 {
