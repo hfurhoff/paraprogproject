@@ -48,7 +48,7 @@ int main( int argc, char **argv )
 
         if(step > 0) clearEnvironment();
         //
-        //  compute forces
+        //  compute force
         //
         for(int i = 0; i < n; i++ ){
             putInSquare(&particles[i]);

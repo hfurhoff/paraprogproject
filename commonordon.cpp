@@ -26,7 +26,7 @@ int squareCounter = 0;
 #define dt      0.0005
 
 //
-//  timer
+//  time
 //
 double read_timer( )
 {
