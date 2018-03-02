@@ -4,8 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/cygdrive/c/Users/pete_/Documents/KTH/Programmering Parallella System/C Kod/paraprogproject/commonordon.cpp" "/cygdrive/c/Users/pete_/Documents/KTH/Programmering Parallella System/C Kod/paraprogproject/cmake-build-debug/CMakeFiles/fuckclion.dir/commonordon.cpp.o"
-  "/cygdrive/c/Users/pete_/Documents/KTH/Programmering Parallella System/C Kod/paraprogproject/serialordon.cpp" "/cygdrive/c/Users/pete_/Documents/KTH/Programmering Parallella System/C Kod/paraprogproject/cmake-build-debug/CMakeFiles/fuckclion.dir/serialordon.cpp.o"
+  "/cygdrive/d/paraProg/project/nyGitTest/paraprogproject/commonordon.cpp" "/cygdrive/d/paraProg/project/nyGitTest/paraprogproject/cmake-build-debug/CMakeFiles/fuckclion.dir/commonordon.cpp.o"
+  "/cygdrive/d/paraProg/project/nyGitTest/paraprogproject/serialordon.cpp" "/cygdrive/d/paraProg/project/nyGitTest/paraprogproject/cmake-build-debug/CMakeFiles/fuckclion.dir/serialordon.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

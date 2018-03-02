@@ -4,6 +4,8 @@
 inline int min( int a, int b ) { return a < b ? a : b; }
 inline int max( int a, int b ) { return a > b ? a : b; }
 
+#define sizesteps 100
+
 //
 //  saving parameters
 //
@@ -22,6 +24,7 @@ typedef struct
     double ax;
     double ay;
     bool inMiddle;
+    int id;
 } particle_t;
 
 //

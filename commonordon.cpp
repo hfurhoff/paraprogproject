@@ -10,7 +10,6 @@
 
 double size;
 double intervall;
-const int sizesteps = 10;
 
 square_t squares[sizesteps][sizesteps];
 square_t *previousSquares[1000];
@@ -49,6 +48,8 @@ void set_size( int n )
 {
     size = sqrt( density * n );
     intervall = size / sizesteps;
+
+    printf("\nINTERVALL = %g\n", intervall);
 }
 
 //
@@ -87,6 +88,9 @@ void init_particles( int n, particle_t *p )
         p[i].vy = drand48()*2-1;
     }
     free( shuffle );
+    for(int i = 0; i < n; i++){
+        p[i].id = i;
+    }
 }
 
 void initSquares(){
@@ -123,24 +127,21 @@ void putInSquare(particle_t *particle){
     auto y = static_cast<int>(std::floor(particle->y / intervall));
     particle->inMiddle = true;
     //mutex
-    particle_node_t * rest;
+    particle_node_t * ny;
+    ny = (particle_node_t*) malloc(sizeof(particle_node_t));
+    ny->p = particle;
     if(squares[x][y].occupied == false){
-        particle_node_t * ny;
-        ny = (particle_node_t*) malloc(sizeof(particle_node_t));
-        squares[x][y].particles = ny;
-        ny->p = particle;
         ny->next = nullptr;
         squares[x][y].occupied = true;
         previousSquares[squareCounter++] = &squares[x][y];
     }else {
-        rest = squares[x][y].particles->next;
-        particle_node_t *ny;
-        ny = (particle_node_t *) malloc(sizeof(particle_node_t));
-        ny->p = particle;
+        particle_node_t * rest;
+        rest = squares[x][y].particles;
         ny->next = rest;
-        squares[x][y].particles = ny;
     }
+    squares[x][y].particles = ny;
     //unmutex
+
 
     if((x * intervall <= (particle->x)) && ((particle->x) <= (x * intervall) + cutoff*cutoff)){
         squares[x][y].trueNeighbours = true;
@@ -157,6 +158,7 @@ void putInSquare(particle_t *particle){
         particle->inMiddle = false;
     }
 
+
 }
 
 void applyForces(particle_t *particle){
@@ -165,20 +167,21 @@ void applyForces(particle_t *particle){
     particle->ax = particle-> ay = 0;
     particle_node_t *temp;
 
-    /**if(particle->inMiddle) {
+
+    if(particle->inMiddle) {
         temp = squares[x][y].particles;
         while (temp != nullptr) {
             apply_force(particle, temp->p);
             temp = temp->next;
         }
-    }else{**/
+    }else{
         int tempX;
         int tempY;
         int maxX,maxY;
         if(x > 0) tempX = x - 1; else tempX = x;
         if(y > 0) tempY = y - 1; else tempY = y;
-        if(x < sizesteps - 1) maxX = x + 1; else maxX = x;
-        if(y < sizesteps - 1) maxY = y + 1; else maxY = y;
+        if(x < sizesteps) maxX = x + 1; else maxX = x;
+        if(y < sizesteps) maxY = y + 1; else maxY = y;
 
         for (int i = tempX; i < maxX; i++) {
             for (int j = tempY; j < maxY; j++) {
@@ -188,16 +191,10 @@ void applyForces(particle_t *particle){
                         apply_force(particle, temp->p);
                         temp = temp->next;
                     }
-                } else {                                //Ny kod
-                    temp = squares[i][j].particles;     //Ny kod
-                    while (temp != nullptr) {           //Ny kod
-                        apply_force(particle, temp->p); //Ny kod
-                        temp = temp->next;              //Ny kod
-                    }                                   //Ny kod
-                }                                       //Ny kod
+                }
             }
         }
-    //}
+    }
 }
 
 //
@@ -212,6 +209,7 @@ void apply_force( particle_t *particle, particle_t *neighbor )
         return;
     r2 = fmax( r2, min_r*min_r );
     double r = sqrt( r2 );
+
 
     //
     //  very simple short-range repulsive force

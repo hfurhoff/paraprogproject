@@ -38,15 +38,17 @@ int main( int argc, char **argv )
     for( int step = 0; step < NSTEPS; step++ )
     {
         int x;
-        x = static_cast<int>(std::floor(particles[0].x / (sqrt(0.0005 * n ) / 100)));
+        x = static_cast<int>(std::floor(particles[0].x / (sqrt(0.0005 * n ) / sizesteps)));
         int y;
-        y = static_cast<int>(std::floor(particles[0].y / (sqrt(0.0005 * n ) / 100)));
+        y = static_cast<int>(std::floor(particles[0].y / (sqrt(0.0005 * n ) / sizesteps)));
 
-        //printf("\nparticle zero in square {%d, %d}", x, y);
-        //printf("\nparticle zero has speed{%g, %g}", particles[0].vx, particles[0].vy);
-        printf("\nparticle zero has acc {%g, %g}", particles[0].ax, particles[0].ax);
+/*        printf("\nparticle zero at pos {%g, %g}", particles[0].x, particles[0].y);
+        printf("\nparticle zero in square {%d, %d}", x, y);
+        printf("\nparticle zero has speed{%g, %g}", particles[0].vx, particles[0].vy);
+*/        printf("\nparticle zero has acc {%g, %g}", particles[0].ax, particles[0].ax);
 
-        if(step > 0) clearEnvironment();
+
+        clearEnvironment();
         //
         //  compute force
         //
@@ -58,6 +60,7 @@ int main( int argc, char **argv )
 
             applyForces(&particles[i]);
         }
+
         //Barrier
         //
         //  move particles

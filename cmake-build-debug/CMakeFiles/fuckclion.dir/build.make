@@ -34,19 +34,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /cygdrive/c/Users/pete_/.CLion2017.3/system/cygwin_cmake/bin/cmake.exe
+CMAKE_COMMAND = /cygdrive/c/Users/Coyote/.CLion2017.3/system/cygwin_cmake/bin/cmake.exe
 
 # The command to remove a file.
-RM = /cygdrive/c/Users/pete_/.CLion2017.3/system/cygwin_cmake/bin/cmake.exe -E remove -f
+RM = /cygdrive/c/Users/Coyote/.CLion2017.3/system/cygwin_cmake/bin/cmake.exe -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/cygdrive/c/Users/pete_/Documents/KTH/Programmering Parallella System/C Kod/paraprogproject"
+CMAKE_SOURCE_DIR = /cygdrive/d/paraProg/project/nyGitTest/paraprogproject
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/cygdrive/c/Users/pete_/Documents/KTH/Programmering Parallella System/C Kod/paraprogproject/cmake-build-debug"
+CMAKE_BINARY_DIR = /cygdrive/d/paraProg/project/nyGitTest/paraprogproject/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/fuckclion.dir/depend.make
@@ -59,16 +59,16 @@ include CMakeFiles/fuckclion.dir/flags.make
 
 CMakeFiles/fuckclion.dir/serialordon.cpp.o: CMakeFiles/fuckclion.dir/flags.make
 CMakeFiles/fuckclion.dir/serialordon.cpp.o: ../serialordon.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/cygdrive/c/Users/pete_/Documents/KTH/Programmering Parallella System/C Kod/paraprogproject/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/fuckclion.dir/serialordon.cpp.o"
-	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/fuckclion.dir/serialordon.cpp.o -c "/cygdrive/c/Users/pete_/Documents/KTH/Programmering Parallella System/C Kod/paraprogproject/serialordon.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/d/paraProg/project/nyGitTest/paraprogproject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/fuckclion.dir/serialordon.cpp.o"
+	D:/progs/cygwin64/bin/g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/fuckclion.dir/serialordon.cpp.o -c /cygdrive/d/paraProg/project/nyGitTest/paraprogproject/serialordon.cpp
 
 CMakeFiles/fuckclion.dir/serialordon.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/fuckclion.dir/serialordon.cpp.i"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/cygdrive/c/Users/pete_/Documents/KTH/Programmering Parallella System/C Kod/paraprogproject/serialordon.cpp" > CMakeFiles/fuckclion.dir/serialordon.cpp.i
+	D:/progs/cygwin64/bin/g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/d/paraProg/project/nyGitTest/paraprogproject/serialordon.cpp > CMakeFiles/fuckclion.dir/serialordon.cpp.i
 
 CMakeFiles/fuckclion.dir/serialordon.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/fuckclion.dir/serialordon.cpp.s"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/cygdrive/c/Users/pete_/Documents/KTH/Programmering Parallella System/C Kod/paraprogproject/serialordon.cpp" -o CMakeFiles/fuckclion.dir/serialordon.cpp.s
+	D:/progs/cygwin64/bin/g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/d/paraProg/project/nyGitTest/paraprogproject/serialordon.cpp -o CMakeFiles/fuckclion.dir/serialordon.cpp.s
 
 CMakeFiles/fuckclion.dir/serialordon.cpp.o.requires:
 
@@ -83,16 +83,16 @@ CMakeFiles/fuckclion.dir/serialordon.cpp.o.provides.build: CMakeFiles/fuckclion.
 
 CMakeFiles/fuckclion.dir/commonordon.cpp.o: CMakeFiles/fuckclion.dir/flags.make
 CMakeFiles/fuckclion.dir/commonordon.cpp.o: ../commonordon.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/cygdrive/c/Users/pete_/Documents/KTH/Programmering Parallella System/C Kod/paraprogproject/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/fuckclion.dir/commonordon.cpp.o"
-	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/fuckclion.dir/commonordon.cpp.o -c "/cygdrive/c/Users/pete_/Documents/KTH/Programmering Parallella System/C Kod/paraprogproject/commonordon.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/d/paraProg/project/nyGitTest/paraprogproject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/fuckclion.dir/commonordon.cpp.o"
+	D:/progs/cygwin64/bin/g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/fuckclion.dir/commonordon.cpp.o -c /cygdrive/d/paraProg/project/nyGitTest/paraprogproject/commonordon.cpp
 
 CMakeFiles/fuckclion.dir/commonordon.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/fuckclion.dir/commonordon.cpp.i"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/cygdrive/c/Users/pete_/Documents/KTH/Programmering Parallella System/C Kod/paraprogproject/commonordon.cpp" > CMakeFiles/fuckclion.dir/commonordon.cpp.i
+	D:/progs/cygwin64/bin/g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/d/paraProg/project/nyGitTest/paraprogproject/commonordon.cpp > CMakeFiles/fuckclion.dir/commonordon.cpp.i
 
 CMakeFiles/fuckclion.dir/commonordon.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/fuckclion.dir/commonordon.cpp.s"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/cygdrive/c/Users/pete_/Documents/KTH/Programmering Parallella System/C Kod/paraprogproject/commonordon.cpp" -o CMakeFiles/fuckclion.dir/commonordon.cpp.s
+	D:/progs/cygwin64/bin/g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/d/paraProg/project/nyGitTest/paraprogproject/commonordon.cpp -o CMakeFiles/fuckclion.dir/commonordon.cpp.s
 
 CMakeFiles/fuckclion.dir/commonordon.cpp.o.requires:
 
@@ -117,7 +117,7 @@ fuckclion.exe: CMakeFiles/fuckclion.dir/serialordon.cpp.o
 fuckclion.exe: CMakeFiles/fuckclion.dir/commonordon.cpp.o
 fuckclion.exe: CMakeFiles/fuckclion.dir/build.make
 fuckclion.exe: CMakeFiles/fuckclion.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/cygdrive/c/Users/pete_/Documents/KTH/Programmering Parallella System/C Kod/paraprogproject/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable fuckclion.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/cygdrive/d/paraProg/project/nyGitTest/paraprogproject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable fuckclion.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/fuckclion.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -135,6 +135,6 @@ CMakeFiles/fuckclion.dir/clean:
 .PHONY : CMakeFiles/fuckclion.dir/clean
 
 CMakeFiles/fuckclion.dir/depend:
-	cd "/cygdrive/c/Users/pete_/Documents/KTH/Programmering Parallella System/C Kod/paraprogproject/cmake-build-debug" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/cygdrive/c/Users/pete_/Documents/KTH/Programmering Parallella System/C Kod/paraprogproject" "/cygdrive/c/Users/pete_/Documents/KTH/Programmering Parallella System/C Kod/paraprogproject" "/cygdrive/c/Users/pete_/Documents/KTH/Programmering Parallella System/C Kod/paraprogproject/cmake-build-debug" "/cygdrive/c/Users/pete_/Documents/KTH/Programmering Parallella System/C Kod/paraprogproject/cmake-build-debug" "/cygdrive/c/Users/pete_/Documents/KTH/Programmering Parallella System/C Kod/paraprogproject/cmake-build-debug/CMakeFiles/fuckclion.dir/DependInfo.cmake" --color=$(COLOR)
+	cd /cygdrive/d/paraProg/project/nyGitTest/paraprogproject/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /cygdrive/d/paraProg/project/nyGitTest/paraprogproject /cygdrive/d/paraProg/project/nyGitTest/paraprogproject /cygdrive/d/paraProg/project/nyGitTest/paraprogproject/cmake-build-debug /cygdrive/d/paraProg/project/nyGitTest/paraprogproject/cmake-build-debug /cygdrive/d/paraProg/project/nyGitTest/paraprogproject/cmake-build-debug/CMakeFiles/fuckclion.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/fuckclion.dir/depend
 
