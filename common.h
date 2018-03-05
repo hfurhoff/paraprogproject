@@ -4,7 +4,7 @@
 inline int min( int a, int b ) { return a < b ? a : b; }
 inline int max( int a, int b ) { return a > b ? a : b; }
 
-#define sizesteps 100
+
 
 //
 //  saving parameters
@@ -24,7 +24,8 @@ typedef struct
     double ax;
     double ay;
     bool inMiddle;
-    int id;
+    int sx;
+    int sy;
 } particle_t;
 
 //
@@ -45,6 +46,7 @@ typedef struct
     bool trueNeighbours;
     particle_node_t *particles;
 } square_t;
+
 
 //
 //
@@ -67,7 +69,7 @@ void freeNodes(particle_node_t* destroyNode);
 void putInSquare(particle_t *particle);
 void applyForces(particle_t *particle);
 
-void apply_force( particle_t *particle, particle_t *neighbor );
+void apply_force( particle_t &particle, particle_t &neighbor );
 void move( particle_t &p );
 
 //

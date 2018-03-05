@@ -28,25 +28,13 @@ int main( int argc, char **argv )
     set_size( n );
     init_particles( n, particles );
 
-    printf("before initSquares");
     initSquares();
-    printf("initSquares works");
     //
     //  simulate a number of time steps
     //
     double simulation_time = read_timer( );
     for( int step = 0; step < NSTEPS; step++ )
     {
-        int x;
-        x = static_cast<int>(std::floor(particles[0].x / (sqrt(0.0005 * n ) / sizesteps)));
-        int y;
-        y = static_cast<int>(std::floor(particles[0].y / (sqrt(0.0005 * n ) / sizesteps)));
-
-/*        printf("\nparticle zero at pos {%g, %g}", particles[0].x, particles[0].y);
-        printf("\nparticle zero in square {%d, %d}", x, y);
-        printf("\nparticle zero has speed{%g, %g}", particles[0].vx, particles[0].vy);
-*/        printf("\nparticle zero has acc {%g, %g}", particles[0].ax, particles[0].ax);
-
 
         clearEnvironment();
         //
@@ -57,7 +45,6 @@ int main( int argc, char **argv )
         }
         //Barrier
         for(int i = 0; i < n; i++){
-
             applyForces(&particles[i]);
         }
 

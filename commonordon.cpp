@@ -11,9 +11,10 @@
 double size;
 double intervall;
 
-square_t squares[sizesteps][sizesteps];
-square_t *previousSquares[1000];
+square_t squares[200][200];
+square_t *previousSquares[8000];
 int squareCounter = 0;
+int sizesteps;
 
 //
 //  tuned constantsss
@@ -23,6 +24,7 @@ int squareCounter = 0;
 #define cutoff  0.01
 #define min_r   (cutoff/100)
 #define dt      0.0005
+
 
 //
 //  time
@@ -47,9 +49,10 @@ double read_timer( )
 void set_size( int n )
 {
     size = sqrt( density * n );
+    sizesteps = static_cast<int>(std::floor(size / cutoff));
     intervall = size / sizesteps;
 
-    printf("\nINTERVALL = %g\n", intervall);
+    printf("\nINTERVALL = %g\nSIZESTEPS = %d\nSIZE = %g\n", intervall, sizesteps, size);
 }
 
 //
@@ -88,9 +91,6 @@ void init_particles( int n, particle_t *p )
         p[i].vy = drand48()*2-1;
     }
     free( shuffle );
-    for(int i = 0; i < n; i++){
-        p[i].id = i;
-    }
 }
 
 void initSquares(){
@@ -104,6 +104,7 @@ void initSquares(){
 }
 
 void clearEnvironment(){
+
     for(int i = 0; i < squareCounter; i++){
         previousSquares[i]->occupied = false;
         previousSquares[i]->trueNeighbours = false;
@@ -122,15 +123,17 @@ void freeNodes(particle_node_t* destroyNode){
     }
 }
 
-void putInSquare(particle_t *particle){
-    auto x = static_cast<int>(std::floor(particle->x / intervall));
-    auto y = static_cast<int>(std::floor(particle->y / intervall));
+void putInSquare(particle_t* particle){
+    int x;
+    int y;
+    x = particle->sx = static_cast<int>(std::floor(particle->x / intervall));
+    y = particle->sy = static_cast<int>(std::floor(particle->y / intervall));
     particle->inMiddle = true;
     //mutex
     particle_node_t * ny;
     ny = (particle_node_t*) malloc(sizeof(particle_node_t));
     ny->p = particle;
-    if(squares[x][y].occupied == false){
+    if(squares[x][y].particles == nullptr){
         ny->next = nullptr;
         squares[x][y].occupied = true;
         previousSquares[squareCounter++] = &squares[x][y];
@@ -143,17 +146,16 @@ void putInSquare(particle_t *particle){
     //unmutex
 
 
-    if((x * intervall <= (particle->x)) && ((particle->x) <= (x * intervall) + cutoff*cutoff)){
+    if(x * intervall <= particle->x && particle->x <= x * intervall + cutoff){
         squares[x][y].trueNeighbours = true;
         particle->inMiddle = false;
-    } else if ((((x + 1) * intervall - cutoff*cutoff) <= (particle->x)) && ((particle->x) <= ((x + 1) * intervall))){
+    } else if ((x + 1) * intervall - cutoff <= particle->x && particle->x <= (x + 1) * intervall) {
         squares[x][y].trueNeighbours = true;
         particle->inMiddle = false;
-    }
-    if((y * intervall <= (particle->y)) && ((particle->y) <= (y * intervall) + cutoff*cutoff)){
+    } else if(y * intervall <= particle->y && particle->y <= y * intervall + cutoff){
         squares[x][y].trueNeighbours = true;
         particle->inMiddle = false;
-    } else if ((((y + 1) * intervall - cutoff*cutoff) <= (particle->y)) && ((particle->y) <= ((y + 1) * intervall))){
+    } else if ((y + 1) * intervall - cutoff <= particle->y && particle->y <= (y + 1) * intervall){
         squares[x][y].trueNeighbours = true;
         particle->inMiddle = false;
     }
@@ -162,8 +164,8 @@ void putInSquare(particle_t *particle){
 }
 
 void applyForces(particle_t *particle){
-    auto x = static_cast<int>(std::floor(particle->x / intervall));
-    auto y = static_cast<int>(std::floor(particle->y / intervall));
+    int x = particle->sx;
+    int y = particle->sy;
     particle->ax = particle-> ay = 0;
     particle_node_t *temp;
 
@@ -171,7 +173,7 @@ void applyForces(particle_t *particle){
     if(particle->inMiddle) {
         temp = squares[x][y].particles;
         while (temp != nullptr) {
-            apply_force(particle, temp->p);
+            apply_force(*particle, *temp->p);
             temp = temp->next;
         }
     }else{
@@ -180,15 +182,15 @@ void applyForces(particle_t *particle){
         int maxX,maxY;
         if(x > 0) tempX = x - 1; else tempX = x;
         if(y > 0) tempY = y - 1; else tempY = y;
-        if(x < sizesteps) maxX = x + 1; else maxX = x;
-        if(y < sizesteps) maxY = y + 1; else maxY = y;
+        if(x < sizesteps - 1) maxX = x + 2; else maxX = sizesteps;
+        if(y < sizesteps - 1) maxY = y + 2; else maxY = sizesteps;
 
         for (int i = tempX; i < maxX; i++) {
             for (int j = tempY; j < maxY; j++) {
                 if (squares[i][j].trueNeighbours) {
                     temp = squares[i][j].particles;
                     while (temp != nullptr) {
-                        apply_force(particle, temp->p);
+                        apply_force(*particle, *temp->p);
                         temp = temp->next;
                     }
                 }
@@ -200,23 +202,22 @@ void applyForces(particle_t *particle){
 //
 //  interact two particles
 //
-void apply_force( particle_t *particle, particle_t *neighbor )
+void apply_force( particle_t &particle, particle_t &neighbor )
 {
-    double dx = neighbor->x - particle->x;
-    double dy = neighbor->y - particle->y;
+    double dx = neighbor.x - particle.x;
+    double dy = neighbor.y - particle.y;
     double r2 = dx * dx + dy * dy;
     if( r2 > cutoff*cutoff ) //0.0001
         return;
     r2 = fmax( r2, min_r*min_r );
     double r = sqrt( r2 );
 
-
     //
     //  very simple short-range repulsive force
     //
     double coef = ( 1 - cutoff / r ) / r2 / mass;
-    particle->ax += coef * dx;
-    particle->ay += coef * dy;
+    particle.ax += coef * dx;
+    particle.ay += coef * dy;
 }
 
 //
