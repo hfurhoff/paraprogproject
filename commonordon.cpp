@@ -11,8 +11,6 @@
 double size;
 double intervall;
 
-square_t squares[200][200];
-square_t *previousSquares[8000];
 int squareCounter = 0;
 int sizesteps;
 
@@ -55,6 +53,10 @@ void set_size( int n )
     printf("\nINTERVALL = %g\nSIZESTEPS = %d\nSIZE = %g\n", intervall, sizesteps, size);
 }
 
+int getSizesteps(){
+    return sizesteps;
+}
+
 //
 //  Initialize the particle positions and velocities
 //
@@ -93,26 +95,25 @@ void init_particles( int n, particle_t *p )
     free( shuffle );
 }
 
-void initSquares(){
-    for(int i = 0; i < sizesteps; i++){
-        for(int j = 0; j < sizesteps; j++){
-            squares[i][j].trueNeighbours = false;
-            squares[i][j].occupied = false;
-            squares[i][j].particles = nullptr;
-        }
-    }
+void initSquare(square_t *square){
+    square->trueNeighbours = false;
+    square->occupied = false;
+    square->particles = nullptr;
 }
 
-void clearEnvironment(){
+int getUsedSquares(){
+    return squareCounter;
+}
 
-    for(int i = 0; i < squareCounter; i++){
-        previousSquares[i]->occupied = false;
-        previousSquares[i]->trueNeighbours = false;
-        freeNodes(previousSquares[i]->particles);
-        previousSquares[i]->particles = nullptr;
-    }
-
+void resetSquareCounter(){
     squareCounter = 0;
+}
+
+void clearSquare(square_t *previousSquare){
+    previousSquare->occupied = false;
+    previousSquare->trueNeighbours = false;
+    freeNodes(previousSquare->particles);
+    previousSquare->particles = nullptr;
 }
 
 void freeNodes(particle_node_t* destroyNode){
@@ -123,7 +124,7 @@ void freeNodes(particle_node_t* destroyNode){
     }
 }
 
-void putInSquare(particle_t* particle){
+void putInSquare(particle_t* particle, square_t **squares, square_t *previousSquares[]){
     int x;
     int y;
     x = particle->sx = static_cast<int>(std::floor(particle->x / intervall));
@@ -163,7 +164,7 @@ void putInSquare(particle_t* particle){
 
 }
 
-void applyForces(particle_t *particle){
+void applyForces(particle_t *particle, square_t (**squares)){
     int x = particle->sx;
     int y = particle->sy;
     particle->ax = particle-> ay = 0;
@@ -290,3 +291,4 @@ char *read_string( int argc, char **argv, const char *option, char *default_valu
         return argv[iplace+1];
     return default_value;
 }
+

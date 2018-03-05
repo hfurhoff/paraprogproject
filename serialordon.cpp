@@ -4,12 +4,13 @@
 #include <math.h>
 #include "common.h"
 
+square_t **squares;
+square_t **previousSquares;
 //
 //  benchmarking program
 //
 int main( int argc, char **argv )
 {
-    printf("in main");
     if( find_option( argc, argv, "-h" ) >= 0 )
     {
         printf( "Options:\n" );
@@ -28,7 +29,16 @@ int main( int argc, char **argv )
     set_size( n );
     init_particles( n, particles );
 
-    initSquares();
+    int sizesteps = getSizesteps();
+
+    previousSquares = (square_t**) malloc(n * sizeof(square_t*));
+    squares = (square_t**) malloc(sizesteps * sizeof(square_t*));
+    for(int i = 0; i < sizesteps; i++){
+        squares[i] = (square_t*) malloc(sizesteps * sizeof(square_t));
+        for(int j = 0; j < sizesteps; j++){
+            initSquare(&squares[i][j]);
+        }
+    }
     //
     //  simulate a number of time steps
     //
@@ -36,16 +46,20 @@ int main( int argc, char **argv )
     for( int step = 0; step < NSTEPS; step++ )
     {
 
-        clearEnvironment();
+        int usedSquares = getUsedSquares();
+        for(int i = 0; i < usedSquares; i++) {
+            clearSquare(previousSquares[i]);
+        }
+        resetSquareCounter();
         //
         //  compute force
         //
         for(int i = 0; i < n; i++ ){
-            putInSquare(&particles[i]);
+            putInSquare(&particles[i], squares, previousSquares);
         }
         //Barrier
         for(int i = 0; i < n; i++){
-            applyForces(&particles[i]);
+            applyForces(&particles[i], squares);
         }
 
         //Barrier

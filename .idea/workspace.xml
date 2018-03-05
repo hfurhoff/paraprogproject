@@ -11,15 +11,14 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="acd62be2-ef22-410a-81a9-7fc163d8437e" name="Default" comment="WOOP WOOP MUTHERFUCKER">
+    <list default="true" id="acd62be2-ef22-410a-81a9-7fc163d8437e" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/fuckclion.dir/commonordon.cpp.o" afterPath="" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/fuckclion.dir/serialordon.cpp.o" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/data" afterPath="$PROJECT_DIR$/cmake-build-debug/data" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/fuckclion.exe" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/fuckclion.exe.stackdump" afterPath="$PROJECT_DIR$/cmake-build-debug/fuckclion.exe.stackdump" />
       <change beforePath="$PROJECT_DIR$/common.h" afterPath="$PROJECT_DIR$/common.h" />
       <change beforePath="$PROJECT_DIR$/commonordon.cpp" afterPath="$PROJECT_DIR$/commonordon.cpp" />
+      <change beforePath="$PROJECT_DIR$/data" afterPath="$PROJECT_DIR$/data" />
       <change beforePath="$PROJECT_DIR$/serialordon.cpp" afterPath="$PROJECT_DIR$/serialordon.cpp" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -33,33 +32,44 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="serialordon.cpp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="serialordon.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/serialordon.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="9" column="33" lean-forward="true" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
+            <state relative-caret-position="17">
+              <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="commonordon.cpp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="commonordon.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/commonordon.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="63" column="0" lean-forward="true" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+            <state relative-caret-position="17">
+              <caret line="104" column="25" lean-forward="false" selection-start-line="104" selection-start-column="25" selection-end-line="104" selection-end-column="25" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
+                <element signature="e#395#742#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="common.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../particles/common.cpp">
+      <file leaf-file-name="s_floor.c" pinned="false" current-in-tab="false">
+        <entry file="file://D:/progs/cygwin64/usr/src/debug/cygwin-2.10.0-1/newlib/libm/math/s_floor.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="94" column="33" lean-forward="false" selection-start-line="94" selection-start-column="33" selection-end-line="94" selection-end-column="33" />
+            <state relative-caret-position="17">
+              <caret line="83" column="0" lean-forward="false" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="w_sqrt.c" pinned="false" current-in-tab="false">
+        <entry file="file://D:/progs/cygwin64/usr/src/debug/cygwin-2.10.0-1/newlib/libm/math/w_sqrt.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -68,8 +78,8 @@
       <file leaf-file-name="common.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/common.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+            <state relative-caret-position="318">
+              <caret line="72" column="50" lean-forward="false" selection-start-line="72" selection-start-column="50" selection-end-line="72" selection-end-column="50" />
               <folding />
             </state>
           </provider>
@@ -84,6 +94,7 @@
       <find>cygdrive/c/Users/</find>
       <find>cutoff</find>
       <find>min_r</find>
+      <find>squares</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -115,7 +126,7 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-7" />
     <option name="y" value="40" />
-    <option name="width" value="1115" />
+    <option name="width" value="900" />
     <option name="height" value="735" />
   </component>
   <component name="ProjectLevelVcsManager">
@@ -182,7 +193,8 @@
       <workItem from="1519829377435" duration="1075000" />
       <workItem from="1519831563249" duration="5326000" />
       <workItem from="1519896502941" duration="6398000" />
-      <workItem from="1519988672043" duration="21146000" />
+      <workItem from="1519988672043" duration="22479000" />
+      <workItem from="1520263366220" duration="4874000" />
     </task>
     <task id="LOCAL-00001" summary="Peters Push">
       <created>1519906228155</created>
@@ -205,27 +217,34 @@
       <option name="project" value="LOCAL" />
       <updated>1519980688292</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="WOOP WOOP MUTHERFUCKER">
+      <created>1520253084684</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1520253084684</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45215000" />
+    <option name="totallyTimeSpent" value="51422000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="40" width="1115" height="735" extended-state="0" />
+    <frame x="-7" y="40" width="900" height="735" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.12552084" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5385852" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37242472" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31993568" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29581994" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24598071" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43740094" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -269,11 +288,46 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="77" />
+      <option name="time" value="85" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/serialordon.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="32" column="39" lean-forward="false" selection-start-line="32" selection-start-column="39" selection-end-line="32" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../particles/common.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1598">
+          <caret line="94" column="33" lean-forward="false" selection-start-line="94" selection-start-column="33" selection-end-line="94" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/commonordon.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2822">
+          <caret line="166" column="0" lean-forward="false" selection-start-line="166" selection-start-column="0" selection-end-line="166" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+            <element signature="e#395#742#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/serialordon.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="918">
@@ -296,6 +350,7 @@
           <caret line="119" column="9" lean-forward="true" selection-start-line="119" selection-start-column="9" selection-end-line="119" selection-end-column="9" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
+            <element signature="e#395#742#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -344,6 +399,7 @@
           <caret line="127" column="59" lean-forward="false" selection-start-line="127" selection-start-column="59" selection-end-line="127" selection-end-column="59" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
+            <element signature="e#395#742#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -361,6 +417,7 @@
           <caret line="260" column="1" lean-forward="false" selection-start-line="260" selection-start-column="1" selection-end-line="260" selection-end-column="1" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
+            <element signature="e#395#742#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -437,6 +494,7 @@
           <caret line="167" column="9" lean-forward="true" selection-start-line="167" selection-start-column="9" selection-end-line="167" selection-end-column="9" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
+            <element signature="e#395#742#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -455,6 +513,7 @@
           <caret line="127" column="59" lean-forward="false" selection-start-line="127" selection-start-column="59" selection-end-line="127" selection-end-column="59" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
+            <element signature="e#395#742#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -481,6 +540,7 @@
           <caret line="260" column="1" lean-forward="false" selection-start-line="260" selection-start-column="1" selection-end-line="260" selection-end-column="1" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
+            <element signature="e#395#742#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -547,18 +607,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://D:/progs/cygwin64/usr/src/debug/cygwin-2.10.0-1/newlib/libm/math/s_floor.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="83" column="0" lean-forward="false" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://D:/progs/cygwin64/usr/src/debug/cygwin-2.10.0-1/newlib/libm/common/s_fpclassify.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="65">
           <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -566,7 +618,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -574,6 +625,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="91">
           <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../particles/common.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1598">
+          <caret line="94" column="33" lean-forward="false" selection-start-line="94" selection-start-column="33" selection-end-line="94" selection-end-column="33" />
           <folding />
         </state>
       </provider>
@@ -586,37 +644,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../particles/common.cpp">
+    <entry file="file://D:/progs/cygwin64/usr/src/debug/cygwin-2.10.0-1/newlib/libm/math/s_floor.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="94" column="33" lean-forward="false" selection-start-line="94" selection-start-column="33" selection-end-line="94" selection-end-column="33" />
+        <state relative-caret-position="17">
+          <caret line="83" column="0" lean-forward="false" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/common.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/serialordon.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="9" column="33" lean-forward="true" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
+        <state relative-caret-position="318">
+          <caret line="72" column="50" lean-forward="false" selection-start-line="72" selection-start-column="50" selection-end-line="72" selection-end-column="50" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/commonordon.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="63" column="0" lean-forward="true" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+        <state relative-caret-position="17">
+          <caret line="104" column="25" lean-forward="false" selection-start-line="104" selection-start-column="25" selection-end-line="104" selection-end-column="25" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
+            <element signature="e#395#742#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/serialordon.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
