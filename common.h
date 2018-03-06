@@ -64,12 +64,12 @@ void set_size( int n );
 void init_particles( int n, particle_t *p );
 
 int getSizesteps();
+double getIntervall();
 void initSquare(square_t *squares);
-int getUsedSquares();
 void resetSquareCounter();
 void clearSquare(square_t *previousSquare);
 void freeNodes(particle_node_t* destroyNode);
-void putInSquare(particle_t *particle, square_t (**squares), square_t *previousSquares[]);
+void putInSquare(particle_t *particle);
 void applyForces(particle_t *particle, square_t (**squares));
 
 void apply_force( particle_t &particle, particle_t &neighbor );

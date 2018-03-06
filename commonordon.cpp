@@ -11,19 +11,14 @@
 double size;
 double intervall;
 
-int squareCounter = 0;
 int sizesteps;
+//
 
-//
-//  tuned constantsss
-//
 #define density 0.0005
 #define mass    0.01
 #define cutoff  0.01
 #define min_r   (cutoff/100)
 #define dt      0.0005
-
-
 //
 //  time
 //
@@ -41,6 +36,7 @@ double read_timer( )
     return (end.tv_sec - start.tv_sec) + 1.0e-6 * (end.tv_usec - start.tv_usec);
 }
 
+
 //
 //  keep density konstant
 //
@@ -55,6 +51,10 @@ void set_size( int n )
 
 int getSizesteps(){
     return sizesteps;
+}
+
+double getIntervall(){
+    return intervall;
 }
 
 //
@@ -93,75 +93,6 @@ void init_particles( int n, particle_t *p )
         p[i].vy = drand48()*2-1;
     }
     free( shuffle );
-}
-
-void initSquare(square_t *square){
-    square->trueNeighbours = false;
-    square->occupied = false;
-    square->particles = nullptr;
-}
-
-int getUsedSquares(){
-    return squareCounter;
-}
-
-void resetSquareCounter(){
-    squareCounter = 0;
-}
-
-void clearSquare(square_t *previousSquare){
-    previousSquare->occupied = false;
-    previousSquare->trueNeighbours = false;
-    freeNodes(previousSquare->particles);
-    previousSquare->particles = nullptr;
-}
-
-void freeNodes(particle_node_t* destroyNode){
-    if(destroyNode->next == nullptr) free(destroyNode);
-    else{
-        freeNodes(destroyNode->next);
-        free(destroyNode);
-    }
-}
-
-void putInSquare(particle_t* particle, square_t **squares, square_t *previousSquares[]){
-    int x;
-    int y;
-    x = particle->sx = static_cast<int>(std::floor(particle->x / intervall));
-    y = particle->sy = static_cast<int>(std::floor(particle->y / intervall));
-    particle->inMiddle = true;
-    //mutex
-    particle_node_t * ny;
-    ny = (particle_node_t*) malloc(sizeof(particle_node_t));
-    ny->p = particle;
-    if(squares[x][y].particles == nullptr){
-        ny->next = nullptr;
-        squares[x][y].occupied = true;
-        previousSquares[squareCounter++] = &squares[x][y];
-    }else {
-        particle_node_t * rest;
-        rest = squares[x][y].particles;
-        ny->next = rest;
-    }
-    squares[x][y].particles = ny;
-    //unmutex
-
-
-    if(x * intervall <= particle->x && particle->x <= x * intervall + cutoff){
-        squares[x][y].trueNeighbours = true;
-        particle->inMiddle = false;
-    } else if ((x + 1) * intervall - cutoff <= particle->x && particle->x <= (x + 1) * intervall) {
-        squares[x][y].trueNeighbours = true;
-        particle->inMiddle = false;
-    } else if(y * intervall <= particle->y && particle->y <= y * intervall + cutoff){
-        squares[x][y].trueNeighbours = true;
-        particle->inMiddle = false;
-    } else if ((y + 1) * intervall - cutoff <= particle->y && particle->y <= (y + 1) * intervall){
-        squares[x][y].trueNeighbours = true;
-        particle->inMiddle = false;
-    }
-
-
 }
 
 void applyForces(particle_t *particle, square_t (**squares)){
