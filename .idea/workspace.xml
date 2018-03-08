@@ -13,7 +13,13 @@
   <component name="ChangeListManager">
     <list default="true" id="acd62be2-ef22-410a-81a9-7fc163d8437e" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/data" afterPath="$PROJECT_DIR$/cmake-build-debug/data" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/fuckclion.exe" afterPath="$PROJECT_DIR$/cmake-build-debug/fuckclion.exe" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/fuckclion.exe.stackdump" afterPath="$PROJECT_DIR$/cmake-build-debug/fuckclion.exe.stackdump" />
+      <change beforePath="$PROJECT_DIR$/data" afterPath="$PROJECT_DIR$/data" />
+      <change beforePath="$PROJECT_DIR$/openmpordon.cpp" afterPath="$PROJECT_DIR$/openmpordon.cpp" />
+      <change beforePath="$PROJECT_DIR$/pthreadsordon.cpp" afterPath="$PROJECT_DIR$/pthreadsordon.cpp" />
+      <change beforePath="$PROJECT_DIR$/serialordon.cpp" afterPath="$PROJECT_DIR$/serialordon.cpp" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -29,8 +35,8 @@
       <file leaf-file-name="serialordon.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/serialordon.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="290">
-              <caret line="162" column="2" lean-forward="false" selection-start-line="162" selection-start-column="2" selection-end-line="162" selection-end-column="2" />
+            <state relative-caret-position="17">
+              <caret line="122" column="22" lean-forward="false" selection-start-line="122" selection-start-column="22" selection-end-line="122" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -40,7 +46,7 @@
         <entry file="file://$PROJECT_DIR$/commonordon.cpp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="182">
-              <caret line="195" column="26" lean-forward="true" selection-start-line="195" selection-start-column="26" selection-end-line="195" selection-end-column="26" />
+              <caret line="195" column="26" lean-forward="false" selection-start-line="195" selection-start-column="26" selection-end-line="195" selection-end-column="26" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
                 <element signature="e#345#692#0" expanded="false" />
@@ -67,23 +73,30 @@
       <file leaf-file-name="pthreadsordon.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pthreadsordon.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="142" column="0" lean-forward="true" selection-start-line="142" selection-start-column="0" selection-end-line="142" selection-end-column="0" />
+            <state relative-caret-position="450">
+              <caret line="138" column="5" lean-forward="false" selection-start-line="138" selection-start-column="5" selection-end-line="138" selection-end-column="5" />
               <folding>
                 <element signature="e#45#64#0" expanded="true" />
-                <element signature="e#635#770#0" expanded="false" />
-                <element signature="e#772#821#0" expanded="false" />
-                <element signature="e#1130#1314#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="hw1matrixc.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../../hw1/hw1matrixc.cpp">
+      <file leaf-file-name="openmpordon.cpp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/openmpordon.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="114" column="19" lean-forward="false" selection-start-line="114" selection-start-column="19" selection-end-line="114" selection-end-column="19" />
+            <state relative-caret-position="212">
+              <caret line="145" column="9" lean-forward="true" selection-start-line="145" selection-start-column="9" selection-end-line="145" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="openmp.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../particles/openmp.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="72" column="0" lean-forward="false" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -99,11 +112,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pthreads.cpp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="pthreads.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../../particles/pthreads.cpp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="255">
-              <caret line="48" column="10" lean-forward="true" selection-start-line="48" selection-start-column="10" selection-end-line="48" selection-end-column="10" />
+              <caret line="48" column="10" lean-forward="false" selection-start-line="48" selection-start-column="10" selection-end-line="48" selection-end-column="10" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -124,9 +137,11 @@
       <find>intervall</find>
       <find>barrier</find>
       <find>attr</find>
+      <find>usedSquares</find>
     </findStrings>
     <replaceStrings>
       <replace>interval</replace>
+      <replace>squaresToClear</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -145,10 +160,10 @@
         <option value="$PROJECT_DIR$/../../particles/common.cpp" />
         <option value="$PROJECT_DIR$/commonordon.cpp" />
         <option value="$PROJECT_DIR$/common.h" />
-        <option value="$PROJECT_DIR$/openmpordon.cpp" />
         <option value="$PROJECT_DIR$/../../particles/pthreads.cpp" />
-        <option value="$PROJECT_DIR$/serialordon.cpp" />
+        <option value="$PROJECT_DIR$/openmpordon.cpp" />
         <option value="$PROJECT_DIR$/pthreadsordon.cpp" />
+        <option value="$PROJECT_DIR$/serialordon.cpp" />
       </list>
     </option>
   </component>
@@ -161,7 +176,7 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-7" />
     <option name="y" value="40" />
-    <option name="width" value="921" />
+    <option name="width" value="970" />
     <option name="height" value="735" />
   </component>
   <component name="ProjectLevelVcsManager">
@@ -186,7 +201,7 @@
   <component name="PropertiesComponent">
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../hw1/hw1matrixc.cpp" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../particles/openmp.cpp" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$2/Languages" value="ObjectiveC" />
   </component>
   <component name="RunDashboard">
@@ -231,7 +246,7 @@
       <workItem from="1519896502941" duration="6398000" />
       <workItem from="1519988672043" duration="22479000" />
       <workItem from="1520263366220" duration="5167000" />
-      <workItem from="1520322514201" duration="30445000" />
+      <workItem from="1520322514201" duration="45522000" />
     </task>
     <task id="LOCAL-00001" summary="Peters Push">
       <created>1519906228155</created>
@@ -282,14 +297,21 @@
       <option name="project" value="LOCAL" />
       <updated>1520498578009</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="openmp funkar bra, pthreads not so much">
+      <created>1520499915054</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1520499915086</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="82160000" />
+    <option name="totallyTimeSpent" value="97237000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="40" width="921" height="735" extended-state="0" />
+    <frame x="-7" y="40" width="970" height="735" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.12552084" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -298,7 +320,7 @@
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296355" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28456593" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18167202" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -345,7 +367,8 @@
     <MESSAGE value="Dynamisk minnesallokring fixad" />
     <MESSAGE value="Flyttat om i koden så att common förhoppningsvis inte behöver ändras senare" />
     <MESSAGE value="openmp funkar bra, pthreads not so much" />
-    <option name="LAST_COMMIT_MESSAGE" value="openmp funkar bra, pthreads not so much" />
+    <MESSAGE value="pthreads funkar, openmp not so much" />
+    <option name="LAST_COMMIT_MESSAGE" value="pthreads funkar, openmp not so much" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -683,24 +706,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../particles/openmp.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="545">
-          <caret line="68" column="24" lean-forward="false" selection-start-line="68" selection-start-column="24" selection-end-line="68" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#19#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/openmpordon.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="563">
-          <caret line="173" column="2" lean-forward="false" selection-start-line="173" selection-start-column="2" selection-end-line="173" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://D:/progs/cygwin64/usr/src/debug/cygwin-2.10.0-1/winsup/cygwin/thread.cc">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
@@ -725,14 +730,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/serialordon.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="162" column="2" lean-forward="false" selection-start-line="162" selection-start-column="2" selection-end-line="162" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../../hw1/hw1matrixc.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -744,7 +741,7 @@
     <entry file="file://$PROJECT_DIR$/commonordon.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="182">
-          <caret line="195" column="26" lean-forward="true" selection-start-line="195" selection-start-column="26" selection-end-line="195" selection-end-column="26" />
+          <caret line="195" column="26" lean-forward="false" selection-start-line="195" selection-start-column="26" selection-end-line="195" selection-end-column="26" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
             <element signature="e#345#692#0" expanded="false" />
@@ -757,26 +754,47 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pthreadsordon.cpp">
+    <entry file="file://$PROJECT_DIR$/../../particles/pthreads.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="142" column="0" lean-forward="true" selection-start-line="142" selection-start-column="0" selection-end-line="142" selection-end-column="0" />
+        <state relative-caret-position="255">
+          <caret line="48" column="10" lean-forward="false" selection-start-line="48" selection-start-column="10" selection-end-line="48" selection-end-column="10" />
           <folding>
-            <element signature="e#45#64#0" expanded="true" />
-            <element signature="e#635#770#0" expanded="false" />
-            <element signature="e#772#821#0" expanded="false" />
-            <element signature="e#1130#1314#0" expanded="false" />
+            <element signature="e#0#19#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../particles/pthreads.cpp">
+    <entry file="file://$PROJECT_DIR$/../../particles/openmp.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="48" column="10" lean-forward="true" selection-start-line="48" selection-start-column="10" selection-end-line="48" selection-end-column="10" />
+        <state relative-caret-position="340">
+          <caret line="72" column="0" lean-forward="false" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/serialordon.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="122" column="22" lean-forward="false" selection-start-line="122" selection-start-column="22" selection-end-line="122" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pthreadsordon.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="138" column="5" lean-forward="false" selection-start-line="138" selection-start-column="5" selection-end-line="138" selection-end-column="5" />
           <folding>
-            <element signature="e#0#19#0" expanded="true" />
+            <element signature="e#45#64#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/openmpordon.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="145" column="9" lean-forward="true" selection-start-line="145" selection-start-column="9" selection-end-line="145" selection-end-column="9" />
+          <folding />
         </state>
       </provider>
     </entry>

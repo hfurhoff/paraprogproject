@@ -27,6 +27,7 @@ square_t **previousSquares;
 double interval;
 double cutoff = 0.01;
 int squareCounter = 0;
+int squaresToClear = 0;
 pthread_mutex_t countlock;
 pthread_mutex_t **squarelock;
 
@@ -34,14 +35,6 @@ void initSquare(square_t *square){
     square->trueNeighbours = false;
     square->occupied = false;
     square->particles = nullptr;
-}
-
-int getUsedSquares(){
-    return squareCounter;
-}
-
-void resetSquareCounter(){
-    squareCounter = 0;
 }
 
 void clearSquare(square_t *previousSquare){
@@ -71,19 +64,20 @@ void putInSquare(particle_t* particle){
     ny = (particle_node_t*) malloc(sizeof(particle_node_t));
     ny->p = particle;
 
-    pthread_mutex_lock(&squarelock[x][y]);
+    //pthread_mutex_lock(&squarelock[x][y]);
     if(squares[x][y].particles == nullptr){
         ny->next = nullptr;
         squares[x][y].occupied = true;
-        pthread_mutex_lock(&countlock);
+        //pthread_mutex_lock(&countlock);
         previousSquares[squareCounter++] = &squares[x][y];
-        pthread_mutex_unlock(&countlock);
+        //pthread_mutex_unlock(&countlock);
     }else {
         particle_node_t * rest;
         rest = squares[x][y].particles;
         ny->next = rest;
     }
     squares[x][y].particles = ny;
+    //pthread_mutex_unlock(&squarelock[x][y]);
 
     if(x * interval <= particle->x && particle->x <= x * interval + cutoff){
         squares[x][y].trueNeighbours = true;
@@ -98,10 +92,7 @@ void putInSquare(particle_t* particle){
         squares[x][y].trueNeighbours = true;
         particle->inMiddle = false;
     }
-    pthread_mutex_unlock(&squarelock[x][y]);
 }
-
-int squaresToClear = 0;
 //
 //  This is where the action happens
 //
@@ -118,21 +109,15 @@ void *thread_routine( void *pthread_id )
     //
     for( int step = 0; step < NSTEPS; step++ )
     {
-        if(squaresToClear > 0) {
-            for(int i = first; i < last; i++){
+
+        if(thread_id == 0) {
+            for (int i = 0; i < squaresToClear; i++) {
                 clearSquare(previousSquares[i]);
             }
-            pthread_barrier_wait(&barrier);
+            for (int i = 0; i < n; i++) {
+                putInSquare(&particles[i]);
+            }
         }
-
-        //
-        //  compute forces
-        //
-        for( int i = first; i < last; i++ )
-        {
-            putInSquare(&particles[i]);
-        }
-
         pthread_barrier_wait( &barrier );
         if(thread_id == 0){
             squaresToClear = squareCounter;
@@ -240,6 +225,11 @@ int main( int argc, char **argv )
     //
     //  release resources
     //
+    for(int i = 0; i < sizesteps; i++){
+        free(squares[i]);
+    }
+    free(squares);
+    free(previousSquares);
     P( pthread_barrier_destroy( &barrier ) );
     P( pthread_attr_destroy( &attr ) );
     free( thread_ids );

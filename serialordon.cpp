@@ -3,7 +3,7 @@
 #include <assert.h>
 #include <math.h>
 #include "common.h"
-/*
+
 square_t **squares;
 square_t **previousSquares;
 double interval;
@@ -16,7 +16,7 @@ void initSquare(square_t *square){
     square->particles = nullptr;
 }
 
-int getUsedSquares(){
+int getsquaresToClear(){
     return squareCounter;
 }
 
@@ -118,32 +118,32 @@ int main( int argc, char **argv )
     //
     double simulation_time = read_timer( );
 
+    int squaresToClear = 0;
     printf("NUMBER OF THREADS = %d\n", 1);
     for( int step = 0; step < NSTEPS; step++ )
     {
-
-        int usedSquares = squareCounter;
-        for(int i = 0; i < usedSquares; i++) {
+        for(int i = 0; i < squaresToClear; i++) {
             clearSquare(previousSquares[i]);
         }
-        resetSquareCounter();
-        //Barrier
+        //Barrier will be needed when parallel
         for(int i = 0; i < n; i++ ){
             putInSquare(&particles[i]);
         }
-        //Barrier
+        //Barrier will be needed when parallel
         for(int i = 0; i < n; i++){
             applyForces(&particles[i], squares);
         }
 
-        //Barrier
+        squaresToClear = squareCounter;
+        squareCounter = 0;
+        //Barrier will be needed when parallel
         //
         //  move particles
         //
         for( int i = 0; i < n; i++ )
             move( particles[i] );
 
-        //Barrier
+        //Barrier will be needed when parallel
         //
         //  save if necessary
         //
@@ -154,10 +154,14 @@ int main( int argc, char **argv )
 
     printf( "\nn = %d, simulation time = %g seconds\n", n, simulation_time );
 
+    for(int i = 0; i < sizesteps; i++){
+        free(squares[i]);
+    }
+    free(squares);
+    free(previousSquares);
     free( particles );
     if( fsave )
         fclose( fsave );
 
     return 0;
 }
-*/
