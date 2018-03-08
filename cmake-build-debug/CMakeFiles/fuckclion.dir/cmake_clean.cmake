@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/fuckclion.dir/serialordon.cpp.o"
   "CMakeFiles/fuckclion.dir/commonordon.cpp.o"
+  "CMakeFiles/fuckclion.dir/openmpordon.cpp.o"
+  "CMakeFiles/fuckclion.dir/pthreadsordon.cpp.o"
   "fuckclion.pdb"
   "fuckclion.exe"
   "libfuckclion.dll.a"

@@ -86,6 +86,12 @@
 		<Unit filename="/cygdrive/d/paraProg/project/nyGitTest/paraprogproject/commonordon.cpp">
 			<Option target="fuckclion"/>
 		</Unit>
+		<Unit filename="/cygdrive/d/paraProg/project/nyGitTest/paraprogproject/openmpordon.cpp">
+			<Option target="fuckclion"/>
+		</Unit>
+		<Unit filename="/cygdrive/d/paraProg/project/nyGitTest/paraprogproject/pthreadsordon.cpp">
+			<Option target="fuckclion"/>
+		</Unit>
 		<Unit filename="/cygdrive/d/paraProg/project/nyGitTest/paraprogproject/serialordon.cpp">
 			<Option target="fuckclion"/>
 		</Unit>

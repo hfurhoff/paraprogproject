@@ -105,19 +105,71 @@ CMakeFiles/fuckclion.dir/commonordon.cpp.o.provides: CMakeFiles/fuckclion.dir/co
 CMakeFiles/fuckclion.dir/commonordon.cpp.o.provides.build: CMakeFiles/fuckclion.dir/commonordon.cpp.o
 
 
+CMakeFiles/fuckclion.dir/openmpordon.cpp.o: CMakeFiles/fuckclion.dir/flags.make
+CMakeFiles/fuckclion.dir/openmpordon.cpp.o: ../openmpordon.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/d/paraProg/project/nyGitTest/paraprogproject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/fuckclion.dir/openmpordon.cpp.o"
+	D:/progs/cygwin64/bin/g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/fuckclion.dir/openmpordon.cpp.o -c /cygdrive/d/paraProg/project/nyGitTest/paraprogproject/openmpordon.cpp
+
+CMakeFiles/fuckclion.dir/openmpordon.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/fuckclion.dir/openmpordon.cpp.i"
+	D:/progs/cygwin64/bin/g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/d/paraProg/project/nyGitTest/paraprogproject/openmpordon.cpp > CMakeFiles/fuckclion.dir/openmpordon.cpp.i
+
+CMakeFiles/fuckclion.dir/openmpordon.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/fuckclion.dir/openmpordon.cpp.s"
+	D:/progs/cygwin64/bin/g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/d/paraProg/project/nyGitTest/paraprogproject/openmpordon.cpp -o CMakeFiles/fuckclion.dir/openmpordon.cpp.s
+
+CMakeFiles/fuckclion.dir/openmpordon.cpp.o.requires:
+
+.PHONY : CMakeFiles/fuckclion.dir/openmpordon.cpp.o.requires
+
+CMakeFiles/fuckclion.dir/openmpordon.cpp.o.provides: CMakeFiles/fuckclion.dir/openmpordon.cpp.o.requires
+	$(MAKE) -f CMakeFiles/fuckclion.dir/build.make CMakeFiles/fuckclion.dir/openmpordon.cpp.o.provides.build
+.PHONY : CMakeFiles/fuckclion.dir/openmpordon.cpp.o.provides
+
+CMakeFiles/fuckclion.dir/openmpordon.cpp.o.provides.build: CMakeFiles/fuckclion.dir/openmpordon.cpp.o
+
+
+CMakeFiles/fuckclion.dir/pthreadsordon.cpp.o: CMakeFiles/fuckclion.dir/flags.make
+CMakeFiles/fuckclion.dir/pthreadsordon.cpp.o: ../pthreadsordon.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/d/paraProg/project/nyGitTest/paraprogproject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/fuckclion.dir/pthreadsordon.cpp.o"
+	D:/progs/cygwin64/bin/g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/fuckclion.dir/pthreadsordon.cpp.o -c /cygdrive/d/paraProg/project/nyGitTest/paraprogproject/pthreadsordon.cpp
+
+CMakeFiles/fuckclion.dir/pthreadsordon.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/fuckclion.dir/pthreadsordon.cpp.i"
+	D:/progs/cygwin64/bin/g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/d/paraProg/project/nyGitTest/paraprogproject/pthreadsordon.cpp > CMakeFiles/fuckclion.dir/pthreadsordon.cpp.i
+
+CMakeFiles/fuckclion.dir/pthreadsordon.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/fuckclion.dir/pthreadsordon.cpp.s"
+	D:/progs/cygwin64/bin/g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/d/paraProg/project/nyGitTest/paraprogproject/pthreadsordon.cpp -o CMakeFiles/fuckclion.dir/pthreadsordon.cpp.s
+
+CMakeFiles/fuckclion.dir/pthreadsordon.cpp.o.requires:
+
+.PHONY : CMakeFiles/fuckclion.dir/pthreadsordon.cpp.o.requires
+
+CMakeFiles/fuckclion.dir/pthreadsordon.cpp.o.provides: CMakeFiles/fuckclion.dir/pthreadsordon.cpp.o.requires
+	$(MAKE) -f CMakeFiles/fuckclion.dir/build.make CMakeFiles/fuckclion.dir/pthreadsordon.cpp.o.provides.build
+.PHONY : CMakeFiles/fuckclion.dir/pthreadsordon.cpp.o.provides
+
+CMakeFiles/fuckclion.dir/pthreadsordon.cpp.o.provides.build: CMakeFiles/fuckclion.dir/pthreadsordon.cpp.o
+
+
 # Object files for target fuckclion
 fuckclion_OBJECTS = \
 "CMakeFiles/fuckclion.dir/serialordon.cpp.o" \
-"CMakeFiles/fuckclion.dir/commonordon.cpp.o"
+"CMakeFiles/fuckclion.dir/commonordon.cpp.o" \
+"CMakeFiles/fuckclion.dir/openmpordon.cpp.o" \
+"CMakeFiles/fuckclion.dir/pthreadsordon.cpp.o"
 
 # External object files for target fuckclion
 fuckclion_EXTERNAL_OBJECTS =
 
 fuckclion.exe: CMakeFiles/fuckclion.dir/serialordon.cpp.o
 fuckclion.exe: CMakeFiles/fuckclion.dir/commonordon.cpp.o
+fuckclion.exe: CMakeFiles/fuckclion.dir/openmpordon.cpp.o
+fuckclion.exe: CMakeFiles/fuckclion.dir/pthreadsordon.cpp.o
 fuckclion.exe: CMakeFiles/fuckclion.dir/build.make
 fuckclion.exe: CMakeFiles/fuckclion.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/cygdrive/d/paraProg/project/nyGitTest/paraprogproject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable fuckclion.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/cygdrive/d/paraProg/project/nyGitTest/paraprogproject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable fuckclion.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/fuckclion.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -127,6 +179,8 @@ CMakeFiles/fuckclion.dir/build: fuckclion.exe
 
 CMakeFiles/fuckclion.dir/requires: CMakeFiles/fuckclion.dir/serialordon.cpp.o.requires
 CMakeFiles/fuckclion.dir/requires: CMakeFiles/fuckclion.dir/commonordon.cpp.o.requires
+CMakeFiles/fuckclion.dir/requires: CMakeFiles/fuckclion.dir/openmpordon.cpp.o.requires
+CMakeFiles/fuckclion.dir/requires: CMakeFiles/fuckclion.dir/pthreadsordon.cpp.o.requires
 
 .PHONY : CMakeFiles/fuckclion.dir/requires
 

@@ -3,6 +3,7 @@
 #include <assert.h>
 #include <math.h>
 #include "common.h"
+#include <omp.h>
 /*
 square_t **squares;
 square_t **previousSquares;
@@ -49,32 +50,33 @@ void putInSquare(particle_t* particle){
     particle_node_t * ny;
     ny = (particle_node_t*) malloc(sizeof(particle_node_t));
     ny->p = particle;
-    //lock
-    if(squares[x][y].particles == nullptr){
-        ny->next = nullptr;
-        squares[x][y].occupied = true;
-        previousSquares[squareCounter++] = &squares[x][y];
-    }else {
-        particle_node_t * rest;
-        rest = squares[x][y].particles;
-        ny->next = rest;
-    }
-    squares[x][y].particles = ny;
+#pragma omp critical
+    {
+        if (squares[x][y].particles == nullptr) {
+            ny->next = nullptr;
+            squares[x][y].occupied = true;
+            previousSquares[squareCounter++] = &squares[x][y];
+        } else {
+            particle_node_t *rest;
+            rest = squares[x][y].particles;
+            ny->next = rest;
+        }
+        squares[x][y].particles = ny;
 
-    if(x * interval <= particle->x && particle->x <= x * interval + cutoff){
-        squares[x][y].trueNeighbours = true;
-        particle->inMiddle = false;
-    } else if ((x + 1) * interval - cutoff <= particle->x && particle->x <= (x + 1) * interval) {
-        squares[x][y].trueNeighbours = true;
-        particle->inMiddle = false;
-    } else if(y * interval <= particle->y && particle->y <= y * interval + cutoff){
-        squares[x][y].trueNeighbours = true;
-        particle->inMiddle = false;
-    } else if ((y + 1) * interval - cutoff <= particle->y && particle->y <= (y + 1) * interval){
-        squares[x][y].trueNeighbours = true;
-        particle->inMiddle = false;
+        if (x * interval <= particle->x && particle->x <= x * interval + cutoff) {
+            squares[x][y].trueNeighbours = true;
+            particle->inMiddle = false;
+        } else if ((x + 1) * interval - cutoff <= particle->x && particle->x <= (x + 1) * interval) {
+            squares[x][y].trueNeighbours = true;
+            particle->inMiddle = false;
+        } else if (y * interval <= particle->y && particle->y <= y * interval + cutoff) {
+            squares[x][y].trueNeighbours = true;
+            particle->inMiddle = false;
+        } else if ((y + 1) * interval - cutoff <= particle->y && particle->y <= (y + 1) * interval) {
+            squares[x][y].trueNeighbours = true;
+            particle->inMiddle = false;
+        }
     }
-    //unlock
 }
 
 //
@@ -91,7 +93,7 @@ int main( int argc, char **argv )
         return 0;
     }
 
-    printf("SERIAL RUN");
+    printf("OPENMP RUN");
 
     int n = read_int( argc, argv, "-n", 1000 );
 
@@ -113,40 +115,49 @@ int main( int argc, char **argv )
             initSquare(&squares[i][j]);
         }
     }
+    int usedSquares = 0;
     //
     //  simulate a number of time steps
     //
     double simulation_time = read_timer( );
 
-    printf("NUMBER OF THREADS = %d\n", 1);
+#pragma omp parallel
+#pragma omp single
+    printf("NUMBER OF THREADS = %d\n", omp_get_num_threads());
     for( int step = 0; step < NSTEPS; step++ )
     {
 
-        int usedSquares = squareCounter;
+#pragma omp master
+        usedSquares = squareCounter;
+#pragma omp for
         for(int i = 0; i < usedSquares; i++) {
             clearSquare(previousSquares[i]);
         }
+#pragma omp master
         resetSquareCounter();
-        //Barrier
+
+#pragma omp for
         for(int i = 0; i < n; i++ ){
             putInSquare(&particles[i]);
         }
-        //Barrier
+
+#pragma omp for
         for(int i = 0; i < n; i++){
             applyForces(&particles[i], squares);
         }
 
-        //Barrier
         //
         //  move particles
         //
+#pragma omp for
         for( int i = 0; i < n; i++ )
             move( particles[i] );
 
-        //Barrier
+
         //
         //  save if necessary
         //
+#pragma omp master
         if( fsave && (step%SAVEFREQ) == 0 )
             save( fsave, n, particles );
     }

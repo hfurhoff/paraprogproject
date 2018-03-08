@@ -150,6 +150,60 @@ commonordon.cpp.s:
 	$(MAKE) -f CMakeFiles/fuckclion.dir/build.make CMakeFiles/fuckclion.dir/commonordon.cpp.s
 .PHONY : commonordon.cpp.s
 
+openmpordon.o: openmpordon.cpp.o
+
+.PHONY : openmpordon.o
+
+# target to build an object file
+openmpordon.cpp.o:
+	$(MAKE) -f CMakeFiles/fuckclion.dir/build.make CMakeFiles/fuckclion.dir/openmpordon.cpp.o
+.PHONY : openmpordon.cpp.o
+
+openmpordon.i: openmpordon.cpp.i
+
+.PHONY : openmpordon.i
+
+# target to preprocess a source file
+openmpordon.cpp.i:
+	$(MAKE) -f CMakeFiles/fuckclion.dir/build.make CMakeFiles/fuckclion.dir/openmpordon.cpp.i
+.PHONY : openmpordon.cpp.i
+
+openmpordon.s: openmpordon.cpp.s
+
+.PHONY : openmpordon.s
+
+# target to generate assembly for a file
+openmpordon.cpp.s:
+	$(MAKE) -f CMakeFiles/fuckclion.dir/build.make CMakeFiles/fuckclion.dir/openmpordon.cpp.s
+.PHONY : openmpordon.cpp.s
+
+pthreadsordon.o: pthreadsordon.cpp.o
+
+.PHONY : pthreadsordon.o
+
+# target to build an object file
+pthreadsordon.cpp.o:
+	$(MAKE) -f CMakeFiles/fuckclion.dir/build.make CMakeFiles/fuckclion.dir/pthreadsordon.cpp.o
+.PHONY : pthreadsordon.cpp.o
+
+pthreadsordon.i: pthreadsordon.cpp.i
+
+.PHONY : pthreadsordon.i
+
+# target to preprocess a source file
+pthreadsordon.cpp.i:
+	$(MAKE) -f CMakeFiles/fuckclion.dir/build.make CMakeFiles/fuckclion.dir/pthreadsordon.cpp.i
+.PHONY : pthreadsordon.cpp.i
+
+pthreadsordon.s: pthreadsordon.cpp.s
+
+.PHONY : pthreadsordon.s
+
+# target to generate assembly for a file
+pthreadsordon.cpp.s:
+	$(MAKE) -f CMakeFiles/fuckclion.dir/build.make CMakeFiles/fuckclion.dir/pthreadsordon.cpp.s
+.PHONY : pthreadsordon.cpp.s
+
 serialordon.o: serialordon.cpp.o
 
 .PHONY : serialordon.o
@@ -189,6 +243,12 @@ help:
 	@echo "... commonordon.o"
 	@echo "... commonordon.i"
 	@echo "... commonordon.s"
+	@echo "... openmpordon.o"
+	@echo "... openmpordon.i"
+	@echo "... openmpordon.s"
+	@echo "... pthreadsordon.o"
+	@echo "... pthreadsordon.i"
+	@echo "... pthreadsordon.s"
 	@echo "... serialordon.o"
 	@echo "... serialordon.i"
 	@echo "... serialordon.s"

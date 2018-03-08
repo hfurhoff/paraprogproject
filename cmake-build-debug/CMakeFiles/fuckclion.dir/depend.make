@@ -4,6 +4,12 @@
 CMakeFiles/fuckclion.dir/commonordon.cpp.o: ../common.h
 CMakeFiles/fuckclion.dir/commonordon.cpp.o: ../commonordon.cpp
 
+CMakeFiles/fuckclion.dir/openmpordon.cpp.o: ../common.h
+CMakeFiles/fuckclion.dir/openmpordon.cpp.o: ../openmpordon.cpp
+
+CMakeFiles/fuckclion.dir/pthreadsordon.cpp.o: ../common.h
+CMakeFiles/fuckclion.dir/pthreadsordon.cpp.o: ../pthreadsordon.cpp
+
 CMakeFiles/fuckclion.dir/serialordon.cpp.o: ../common.h
 CMakeFiles/fuckclion.dir/serialordon.cpp.o: ../serialordon.cpp
 
