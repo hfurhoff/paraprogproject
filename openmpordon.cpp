@@ -10,6 +10,7 @@ square_t **previousSquares;
 double interval;
 double cutoff = 0.01;
 int squareCounter = 0;
+int n_threads;
 
 void initSquare(square_t *square){
     square->trueNeighbours = false;
@@ -86,6 +87,7 @@ int main( int argc, char **argv )
         printf( "Options:\n" );
         printf( "-h to see this help\n" );
         printf( "-n <int> to set the number of particles\n" );
+        printf( "-p <int> to set the number of threads\n" );
         printf( "-o <filename> to specify the output file name\n" );
         return 0;
     }
@@ -93,6 +95,8 @@ int main( int argc, char **argv )
     printf("OPENMP RUN");
 
     int n = read_int( argc, argv, "-n", 1000 );
+    n_threads = read_int(argc, argv, "-p", 2 );
+    omp_set_num_threads(n_threads);
 
     char *savename = read_string(argc, argv, "-o", const_cast<char *>("data"));
 

@@ -13,13 +13,8 @@
   <component name="ChangeListManager">
     <list default="true" id="acd62be2-ef22-410a-81a9-7fc163d8437e" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/data" afterPath="$PROJECT_DIR$/cmake-build-debug/data" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/fuckclion.exe" afterPath="$PROJECT_DIR$/cmake-build-debug/fuckclion.exe" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/fuckclion.exe.stackdump" afterPath="$PROJECT_DIR$/cmake-build-debug/fuckclion.exe.stackdump" />
       <change beforePath="$PROJECT_DIR$/data" afterPath="$PROJECT_DIR$/data" />
       <change beforePath="$PROJECT_DIR$/openmpordon.cpp" afterPath="$PROJECT_DIR$/openmpordon.cpp" />
-      <change beforePath="$PROJECT_DIR$/pthreadsordon.cpp" afterPath="$PROJECT_DIR$/pthreadsordon.cpp" />
-      <change beforePath="$PROJECT_DIR$/serialordon.cpp" afterPath="$PROJECT_DIR$/serialordon.cpp" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -73,8 +68,8 @@
       <file leaf-file-name="pthreadsordon.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pthreadsordon.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="138" column="5" lean-forward="false" selection-start-line="138" selection-start-column="5" selection-end-line="138" selection-end-column="5" />
+            <state relative-caret-position="229">
+              <caret line="168" column="43" lean-forward="false" selection-start-line="168" selection-start-column="43" selection-end-line="169" selection-end-column="74" />
               <folding>
                 <element signature="e#45#64#0" expanded="true" />
               </folding>
@@ -85,8 +80,8 @@
       <file leaf-file-name="openmpordon.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/openmpordon.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
-              <caret line="145" column="9" lean-forward="true" selection-start-line="145" selection-start-column="9" selection-end-line="145" selection-end-column="9" />
+            <state relative-caret-position="17">
+              <caret line="116" column="9" lean-forward="true" selection-start-line="116" selection-start-column="9" selection-end-line="116" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -161,9 +156,9 @@
         <option value="$PROJECT_DIR$/commonordon.cpp" />
         <option value="$PROJECT_DIR$/common.h" />
         <option value="$PROJECT_DIR$/../../particles/pthreads.cpp" />
-        <option value="$PROJECT_DIR$/openmpordon.cpp" />
         <option value="$PROJECT_DIR$/pthreadsordon.cpp" />
         <option value="$PROJECT_DIR$/serialordon.cpp" />
+        <option value="$PROJECT_DIR$/openmpordon.cpp" />
       </list>
     </option>
   </component>
@@ -246,7 +241,7 @@
       <workItem from="1519896502941" duration="6398000" />
       <workItem from="1519988672043" duration="22479000" />
       <workItem from="1520263366220" duration="5167000" />
-      <workItem from="1520322514201" duration="45522000" />
+      <workItem from="1520322514201" duration="47928000" />
     </task>
     <task id="LOCAL-00001" summary="Peters Push">
       <created>1519906228155</created>
@@ -304,11 +299,18 @@
       <option name="project" value="LOCAL" />
       <updated>1520499915086</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="pthreads funkar, openmp not so much">
+      <created>1520520676607</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1520520676607</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="97237000" />
+    <option name="totallyTimeSpent" value="99643000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="40" width="970" height="735" extended-state="0" />
@@ -782,8 +784,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pthreadsordon.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="138" column="5" lean-forward="false" selection-start-line="138" selection-start-column="5" selection-end-line="138" selection-end-column="5" />
+        <state relative-caret-position="229">
+          <caret line="168" column="43" lean-forward="false" selection-start-line="168" selection-start-column="43" selection-end-line="169" selection-end-column="74" />
           <folding>
             <element signature="e#45#64#0" expanded="true" />
           </folding>
@@ -792,8 +794,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/openmpordon.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="145" column="9" lean-forward="true" selection-start-line="145" selection-start-column="9" selection-end-line="145" selection-end-column="9" />
+        <state relative-caret-position="17">
+          <caret line="116" column="9" lean-forward="true" selection-start-line="116" selection-start-column="9" selection-end-line="116" selection-end-column="9" />
           <folding />
         </state>
       </provider>
