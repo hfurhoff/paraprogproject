@@ -13,27 +13,7 @@
   <component name="ChangeListManager">
     <list default="true" id="acd62be2-ef22-410a-81a9-7fc163d8437e" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" afterPath="$PROJECT_DIR$/CMakeLists.txt" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/fuckclion.dir/CXX.includecache" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/fuckclion.dir/CXX.includecache" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/fuckclion.dir/DependInfo.cmake" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/fuckclion.dir/DependInfo.cmake" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/fuckclion.dir/build.make" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/fuckclion.dir/build.make" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/fuckclion.dir/cmake_clean.cmake" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/fuckclion.dir/cmake_clean.cmake" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/fuckclion.dir/commonordon.cpp.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/fuckclion.dir/commonordon.cpp.o" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/fuckclion.dir/depend.internal" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/fuckclion.dir/depend.internal" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/fuckclion.dir/depend.make" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/fuckclion.dir/depend.make" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/fuckclion.dir/link.txt" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/fuckclion.dir/link.txt" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/fuckclion.dir/progress.make" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/fuckclion.dir/progress.make" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/fuckclion.dir/serialordon.cpp.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/fuckclion.dir/serialordon.cpp.o" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/data" afterPath="$PROJECT_DIR$/cmake-build-debug/data" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/fuckclion.cbp" afterPath="$PROJECT_DIR$/cmake-build-debug/fuckclion.cbp" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/fuckclion.exe" afterPath="$PROJECT_DIR$/cmake-build-debug/fuckclion.exe" />
-      <change beforePath="$PROJECT_DIR$/data" afterPath="$PROJECT_DIR$/data" />
-      <change beforePath="$PROJECT_DIR$/serialordon.cpp" afterPath="$PROJECT_DIR$/serialordon.cpp" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/fuckclion.exe.stackdump" afterPath="$PROJECT_DIR$/cmake-build-debug/fuckclion.exe.stackdump" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -84,7 +64,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pthreadsordon.cpp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="pthreadsordon.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pthreadsordon.cpp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="250">
@@ -119,11 +99,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pthreads.cpp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="pthreads.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../../particles/pthreads.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="31" column="6" lean-forward="true" selection-start-line="31" selection-start-column="6" selection-end-line="31" selection-end-column="6" />
+            <state relative-caret-position="255">
+              <caret line="48" column="10" lean-forward="true" selection-start-line="48" selection-start-column="10" selection-end-line="48" selection-end-column="10" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -251,7 +231,7 @@
       <workItem from="1519896502941" duration="6398000" />
       <workItem from="1519988672043" duration="22479000" />
       <workItem from="1520263366220" duration="5167000" />
-      <workItem from="1520322514201" duration="30284000" />
+      <workItem from="1520322514201" duration="30445000" />
     </task>
     <task id="LOCAL-00001" summary="Peters Push">
       <created>1519906228155</created>
@@ -295,11 +275,18 @@
       <option name="project" value="LOCAL" />
       <updated>1520326947725</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="openmp funkar bra, pthreads not so much">
+      <created>1520498578009</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1520498578009</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="81999000" />
+    <option name="totallyTimeSpent" value="82160000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="40" width="921" height="735" extended-state="0" />
@@ -357,7 +344,8 @@
     <MESSAGE value="WOOP WOOP MUTHERFUCKER" />
     <MESSAGE value="Dynamisk minnesallokring fixad" />
     <MESSAGE value="Flyttat om i koden så att common förhoppningsvis inte behöver ändras senare" />
-    <option name="LAST_COMMIT_MESSAGE" value="Flyttat om i koden så att common förhoppningsvis inte behöver ändras senare" />
+    <MESSAGE value="openmp funkar bra, pthreads not so much" />
+    <option name="LAST_COMMIT_MESSAGE" value="openmp funkar bra, pthreads not so much" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -753,16 +741,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../particles/pthreads.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="31" column="6" lean-forward="true" selection-start-line="31" selection-start-column="6" selection-end-line="31" selection-end-column="6" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/commonordon.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="182">
@@ -788,6 +766,16 @@
             <element signature="e#635#770#0" expanded="false" />
             <element signature="e#772#821#0" expanded="false" />
             <element signature="e#1130#1314#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../particles/pthreads.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="48" column="10" lean-forward="true" selection-start-line="48" selection-start-column="10" selection-end-line="48" selection-end-column="10" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
           </folding>
         </state>
       </provider>
