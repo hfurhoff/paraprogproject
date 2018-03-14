@@ -138,7 +138,7 @@ int main( int argc, char **argv )
             }
         }
 
-#pragma omp for
+#pragma omp for schedule(dynamic, 200)
         for (int i = 0; i < n; i++) {
             applyForces(&particles[i], squares);
         }
@@ -151,7 +151,7 @@ int main( int argc, char **argv )
         //
         //  move particles
         //
-#pragma omp for
+#pragma omp for schedule(dynamic, 200)
         for (int i = 0; i < n; i++)
             move(particles[i]);
 
