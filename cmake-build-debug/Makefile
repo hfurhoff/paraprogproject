@@ -150,6 +150,33 @@ commonordon.cpp.s:
 	$(MAKE) -f CMakeFiles/fuckclion.dir/build.make CMakeFiles/fuckclion.dir/commonordon.cpp.s
 .PHONY : commonordon.cpp.s
 
+mpiordon.o: mpiordon.cpp.o
+
+.PHONY : mpiordon.o
+
+# target to build an object file
+mpiordon.cpp.o:
+	$(MAKE) -f CMakeFiles/fuckclion.dir/build.make CMakeFiles/fuckclion.dir/mpiordon.cpp.o
+.PHONY : mpiordon.cpp.o
+
+mpiordon.i: mpiordon.cpp.i
+
+.PHONY : mpiordon.i
+
+# target to preprocess a source file
+mpiordon.cpp.i:
+	$(MAKE) -f CMakeFiles/fuckclion.dir/build.make CMakeFiles/fuckclion.dir/mpiordon.cpp.i
+.PHONY : mpiordon.cpp.i
+
+mpiordon.s: mpiordon.cpp.s
+
+.PHONY : mpiordon.s
+
+# target to generate assembly for a file
+mpiordon.cpp.s:
+	$(MAKE) -f CMakeFiles/fuckclion.dir/build.make CMakeFiles/fuckclion.dir/mpiordon.cpp.s
+.PHONY : mpiordon.cpp.s
+
 openmpordon.o: openmpordon.cpp.o
 
 .PHONY : openmpordon.o
@@ -243,6 +270,9 @@ help:
 	@echo "... commonordon.o"
 	@echo "... commonordon.i"
 	@echo "... commonordon.s"
+	@echo "... mpiordon.o"
+	@echo "... mpiordon.i"
+	@echo "... mpiordon.s"
 	@echo "... openmpordon.o"
 	@echo "... openmpordon.i"
 	@echo "... openmpordon.s"

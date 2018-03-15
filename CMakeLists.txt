@@ -3,4 +3,4 @@ project(fuckclion)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(fuckclion serialordon.cpp commonordon.cpp common.h openmpordon.cpp pthreadsordon.cpp)
+add_executable(fuckclion serialordon.cpp commonordon.cpp common.h openmpordon.cpp pthreadsordon.cpp mpiordon.cpp)
