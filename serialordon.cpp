@@ -16,14 +16,6 @@ void initSquare(square_t *square){
     square->particles = nullptr;
 }
 
-int getsquaresToClear(){
-    return squareCounter;
-}
-
-void resetSquareCounter(){
-    squareCounter = 0;
-}
-
 void clearSquare(square_t *previousSquare){
     previousSquare->occupied = false;
     previousSquare->trueNeighbours = false;

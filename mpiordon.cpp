@@ -2,29 +2,13 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <assert.h>
-#include <cmath>
+#include <math.h>
 #include "common.h"
-
-bool *squareparticlesbools;
-particle_t *squareparticles;
-square_t **squares;
-square_t **previousSquares;
-double interval;
-double cutoff = 0.01;
-int squareCounter = 0;
 
 void initSquare(square_t *square){
     square->trueNeighbours = false;
     square->occupied = false;
     square->particles = nullptr;
-}
-
-int getsquaresToClear(){
-    return squareCounter;
-}
-
-void resetSquareCounter(){
-    squareCounter = 0;
 }
 
 void clearSquare(square_t *previousSquare){
@@ -42,7 +26,7 @@ void freeNodes(particle_node_t* destroyNode){
     }
 }
 
-void putInSquare(particle_t* particle){
+void putInSquare(particle_t* particle, square_t **squares, square_t **previousSquares, double interval, double cutoff, int *squareCounter){
     int x;
     int y;
     x = particle->sx = static_cast<int>(std::floor(particle->x / interval));
@@ -52,11 +36,12 @@ void putInSquare(particle_t* particle){
     particle_node_t * ny;
     ny = (particle_node_t*) malloc(sizeof(particle_node_t));
     ny->p = particle;
-    //lock
+
     if(squares[x][y].particles == nullptr){
         ny->next = nullptr;
         squares[x][y].occupied = true;
-        previousSquares[squareCounter++] = &squares[x][y];
+        previousSquares[*squareCounter] = &squares[x][y];
+        *squareCounter = *squareCounter + 1;
     }else {
         particle_node_t * rest;
         rest = squares[x][y].particles;
@@ -77,39 +62,8 @@ void putInSquare(particle_t* particle){
         squares[x][y].trueNeighbours = true;
         particle->inMiddle = false;
     }
-    //unlock
 }
 
-void applyForces(particle_t *particle, int sizesteps, int spBuff){
-    int x = particle->sx;
-    int y = particle->sy;
-    particle->ax = particle-> ay = 0;
-    int first = (x + y * sizesteps) * spBuff;
-    int last = first + spBuff;
-    int i = first;
-    particle_t temp = squareparticles[i];
-    bool cont = squareparticlesbools[i];
-
-    while (cont && i < last) {
-        apply_force(*particle, squareparticles[i]);
-        cont = squareparticlesbools[++i];
-    }
-}
-
-void transferFromMatrixToArray(square_t *prevSquare, int spBuff){
-    int x = prevSquare->particles->p->sx;
-    int y = prevSquare->particles->p->sy;
-    int addedParticles = 0;
-    int sizesteps = getSizesteps();
-    int first = (x + y * sizesteps) * spBuff;
-    particle_node_t *temp = prevSquare->particles;
-    while(temp != nullptr && addedParticles < spBuff){
-        squareparticles[first + addedParticles] = *temp->p;
-        squareparticlesbools[first + addedParticles] = true;
-        addedParticles++;
-        temp = temp->next;
-    }
-}
 
 //
 //  benchmarking program
@@ -139,43 +93,14 @@ int main( int argc, char **argv )
     MPI_Comm_size( MPI_COMM_WORLD, &n_proc );
     MPI_Comm_rank( MPI_COMM_WORLD, &rank );
 
-
-
-    set_size( n );
-    particle_t *particles = (particle_t*) malloc( n * sizeof(particle_t) );
-    if(rank == 0) init_particles( n, particles );
-
-    int sizesteps = getSizesteps();
-    interval = getIntervall();
-    int squaresToClear = 0;
-
-    if(rank == 0) {
-        previousSquares = (square_t**) malloc(n * sizeof(square_t*));
-        squares = (square_t**) malloc(sizesteps * sizeof(square_t*));
-        for(int i = 0; i < sizesteps; i++){
-            squares[i] = (square_t*) malloc(sizesteps * sizeof(square_t));
-            for(int j = 0; j < sizesteps; j++){
-                initSquare(&squares[i][j]);
-            }
-        }
-    }
-    int spbuffer = 20;
-    squareparticles = (particle_t*) malloc(sizesteps * sizesteps * spbuffer * sizeof(particle_t));
-    squareparticlesbools = (bool*) malloc(sizesteps * sizesteps * spbuffer * sizeof(bool));
-    for(int i = 0; i < sizesteps * sizesteps * spbuffer; i++){
-        squareparticles[i] = nullptr;
-        squareparticlesbools[i] = false;
-    }
-
     //
     //  allocate generic resources
     //
     FILE *fsave = savename && rank == 0 ? fopen( savename, "w" ) : NULL;
+    particle_t *particles = (particle_t*) malloc( n * sizeof(particle_t) );
 
     MPI_Datatype PARTICLE;
     MPI_Type_contiguous( 6, MPI_DOUBLE, &PARTICLE );
-    MPI_Type_contiguous(2, MPI_INTEGER, &PARTICLE);
-    MPI_Type_contiguous(1, MPI_CXX_BOOL, &PARTICLE);
     MPI_Type_commit( &PARTICLE );
 
     //
@@ -183,14 +108,12 @@ int main( int argc, char **argv )
     //
     int particle_per_proc = (n + n_proc - 1) / n_proc;
     int *partition_offsets = (int*) malloc( (n_proc+1) * sizeof(int) );
-    for( int i = 0; i < n_proc+1; i++ ) {
+    for( int i = 0; i < n_proc+1; i++ )
         partition_offsets[i] = min( i * particle_per_proc, n );
-    }
 
     int *partition_sizes = (int*) malloc( n_proc * sizeof(int) );
-    for( int i = 0; i < n_proc; i++ ) {
+    for( int i = 0; i < n_proc; i++ )
         partition_sizes[i] = partition_offsets[i+1] - partition_offsets[i];
-    }
 
     //
     //  allocate storage for local partition
@@ -201,7 +124,29 @@ int main( int argc, char **argv )
     //
     //  initialize and distribute the particles (that's fine to leave it unoptimized)
     //
+    set_size( n );
+    if( rank == 0 )
+        init_particles( n, particles );
     MPI_Scatterv( particles, partition_sizes, partition_offsets, PARTICLE, local, nlocal, PARTICLE, 0, MPI_COMM_WORLD );
+
+    square_t **squares;
+    square_t **previousSquares;
+    double interval;
+    double cutoff = 0.01;
+    int squareCounter = 0;
+
+    int sizesteps = getSizesteps();
+    interval = getIntervall();
+    int squaresToClear = 0;
+
+    previousSquares = (square_t**) malloc(n * sizeof(square_t*));
+    squares = (square_t**) malloc(sizesteps * sizeof(square_t*));
+    for(int i = 0; i < sizesteps; i++){
+        squares[i] = (square_t*) malloc(sizesteps * sizeof(square_t));
+        for(int j = 0; j < sizesteps; j++){
+            initSquare(&squares[i][j]);
+        }
+    }
 
     //
     //  simulate a number of time steps
@@ -220,35 +165,23 @@ int main( int argc, char **argv )
         if( fsave && (step%SAVEFREQ) == 0 )
             save( fsave, n, particles );
 
-
-        if(rank == 0) {
-            for(int i = 0; i < sizesteps * sizesteps * spbuffer; i++){
-                squareparticles[i] = nullptr;
-                squareparticlesbools[i] = false;
-            }
-
-            for (int i = 0; i < squaresToClear; i++) {
-                clearSquare(previousSquares[i]);
-            }
-
-            for (int i = 0; i < n; i++) {
-                putInSquare(&particles[i]);
-            }
-
-            for(int i = 0; i < squareCounter; i++){
-                transferFromMatrixToArray(previousSquares[i], spbuffer);
-            }
+        for(int i = 0; i < squaresToClear; i++) {
+            clearSquare(previousSquares[i]);
         }
 
-        MPI_Bcast(squareparticles, sizesteps * sizesteps * spbuffer, PARTICLE, 0, MPI_COMM_WORLD);
-        MPI_Bcast(squareparticlesbools, sizesteps * sizesteps * spbuffer, MPI_CXX_BOOL, 0, MPI_COMM_WORLD);
+        for(int i = 0; i < n; i++ ){
+            putInSquare(&particles[i], squares, previousSquares, interval, cutoff, &squareCounter);
+        }
+
+        squaresToClear = squareCounter;
+        squareCounter = 0;
 
         //
         //  compute all forces
         //
         for( int i = 0; i < nlocal; i++ )
         {
-            applyForces(&local[i], sizesteps, spbuffer);
+            applyForces(&local[i], squares);
         }
 
         //
@@ -256,7 +189,6 @@ int main( int argc, char **argv )
         //
         for( int i = 0; i < nlocal; i++ )
             move( local[i] );
-
     }
     simulation_time = read_timer( ) - simulation_time;
 
@@ -266,8 +198,6 @@ int main( int argc, char **argv )
     //
     //  release resources
     //
-    free(squares);
-    free(previousSquares);
     free( partition_offsets );
     free( partition_sizes );
     free( local );
@@ -279,4 +209,3 @@ int main( int argc, char **argv )
 
     return 0;
 }
-

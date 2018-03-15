@@ -11,9 +11,10 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="acd62be2-ef22-410a-81a9-7fc163d8437e" name="Default" comment="">
+    <list default="true" id="acd62be2-ef22-410a-81a9-7fc163d8437e" name="Default" comment="börjat om med mpi">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/mpiordon.cpp" afterPath="$PROJECT_DIR$/mpiordon.cpp" />
+      <change beforePath="$PROJECT_DIR$/serialordon.cpp" afterPath="$PROJECT_DIR$/serialordon.cpp" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -29,25 +30,23 @@
       <file leaf-file-name="serialordon.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/serialordon.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="108" column="0" lean-forward="false" selection-start-line="108" selection-start-column="0" selection-end-line="115" selection-end-column="5" />
+            <state relative-caret-position="172">
+              <caret line="128" column="0" lean-forward="false" selection-start-line="128" selection-start-column="0" selection-end-line="129" selection-end-column="26" />
               <folding>
                 <element signature="e#209#344#0" expanded="false" />
-                <element signature="e#346#398#0" expanded="false" />
-                <element signature="e#400#451#0" expanded="false" />
-                <element signature="e#453#663#0" expanded="false" />
-                <element signature="e#665#849#0" expanded="false" />
-                <element signature="e#851#2239#0" expanded="false" />
+                <element signature="e#346#556#0" expanded="false" />
+                <element signature="e#558#742#0" expanded="false" />
+                <element signature="e#744#2132#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mpiordon.cpp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="mpiordon.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mpiordon.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="94" column="41" lean-forward="true" selection-start-line="94" selection-start-column="41" selection-end-line="94" selection-end-column="41" />
+            <state relative-caret-position="291">
+              <caret line="175" column="39" lean-forward="true" selection-start-line="175" selection-start-column="39" selection-end-line="175" selection-end-column="39" />
               <folding>
                 <element signature="e#0#16#0" expanded="true" />
               </folding>
@@ -55,11 +54,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mpi.cpp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="mpi.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../../particles/mpi.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="264">
+              <caret line="86" column="8" lean-forward="true" selection-start-line="86" selection-start-column="8" selection-end-line="86" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -80,8 +79,8 @@
       <file leaf-file-name="commonordon.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/commonordon.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="133" column="2" lean-forward="true" selection-start-line="133" selection-start-column="2" selection-end-line="133" selection-end-column="2" />
+            <state relative-caret-position="563">
+              <caret line="131" column="1" lean-forward="false" selection-start-line="131" selection-start-column="1" selection-end-line="131" selection-end-column="1" />
               <folding>
                 <element signature="e#345#692#0" expanded="false" />
                 <element signature="e#972#1015#0" expanded="false" />
@@ -96,8 +95,8 @@
       <file leaf-file-name="common.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/common.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="563">
-              <caret line="83" column="0" lean-forward="false" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
+            <state relative-caret-position="136">
+              <caret line="24" column="14" lean-forward="false" selection-start-line="24" selection-start-column="14" selection-end-line="24" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -159,13 +158,13 @@
         <option value="$PROJECT_DIR$/main.cpp" />
         <option value="$PROJECT_DIR$/../Project Particle/serial.cpp" />
         <option value="$PROJECT_DIR$/../../particles/common.cpp" />
-        <option value="$PROJECT_DIR$/commonordon.cpp" />
-        <option value="$PROJECT_DIR$/common.h" />
         <option value="$PROJECT_DIR$/../../particles/pthreads.cpp" />
         <option value="$PROJECT_DIR$/pthreadsordon.cpp" />
         <option value="$PROJECT_DIR$/openmpordon.cpp" />
-        <option value="$PROJECT_DIR$/serialordon.cpp" />
         <option value="$PROJECT_DIR$/../test.cpp" />
+        <option value="$PROJECT_DIR$/commonordon.cpp" />
+        <option value="$PROJECT_DIR$/common.h" />
+        <option value="$PROJECT_DIR$/serialordon.cpp" />
         <option value="$PROJECT_DIR$/mpiordon.cpp" />
       </list>
     </option>
@@ -179,7 +178,7 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-7" />
     <option name="y" value="40" />
-    <option name="width" value="927" />
+    <option name="width" value="944" />
     <option name="height" value="735" />
   </component>
   <component name="ProjectLevelVcsManager">
@@ -252,7 +251,7 @@
       <workItem from="1520322514201" duration="49008000" />
       <workItem from="1521022140586" duration="14710000" />
       <workItem from="1521060718938" duration="7897000" />
-      <workItem from="1521116281387" duration="4564000" />
+      <workItem from="1521116281387" duration="9290000" />
     </task>
     <task id="LOCAL-00001" summary="Peters Push">
       <created>1519906228155</created>
@@ -345,14 +344,21 @@
       <option name="project" value="LOCAL" />
       <updated>1521119069927</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="fortsatt med mpi">
+      <created>1521121271038</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1521121271038</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="127894000" />
+    <option name="totallyTimeSpent" value="132620000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="40" width="927" height="735" extended-state="0" />
+    <frame x="-7" y="40" width="944" height="735" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.12552084" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -412,7 +418,8 @@
     <MESSAGE value="ändrade schduling med pytteliten förbättring" />
     <MESSAGE value="börjat med mpi" />
     <MESSAGE value="fortsatt med mpi" />
-    <option name="LAST_COMMIT_MESSAGE" value="fortsatt med mpi" />
+    <MESSAGE value="börjat om med mpi" />
+    <option name="LAST_COMMIT_MESSAGE" value="börjat om med mpi" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -469,11 +476,9 @@
           <caret line="2" column="19" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
           <folding>
             <element signature="e#209#344#0" expanded="false" />
-            <element signature="e#346#398#0" expanded="false" />
-            <element signature="e#400#451#0" expanded="false" />
-            <element signature="e#453#663#0" expanded="false" />
-            <element signature="e#665#849#0" expanded="false" />
-            <element signature="e#851#2239#0" expanded="false" />
+            <element signature="e#346#556#0" expanded="false" />
+            <element signature="e#558#742#0" expanded="false" />
+            <element signature="e#744#2132#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -527,11 +532,9 @@
           <caret line="57" column="19" lean-forward="true" selection-start-line="57" selection-start-column="19" selection-end-line="57" selection-end-column="19" />
           <folding>
             <element signature="e#209#344#0" expanded="false" />
-            <element signature="e#346#398#0" expanded="false" />
-            <element signature="e#400#451#0" expanded="false" />
-            <element signature="e#453#663#0" expanded="false" />
-            <element signature="e#665#849#0" expanded="false" />
-            <element signature="e#851#2239#0" expanded="false" />
+            <element signature="e#346#556#0" expanded="false" />
+            <element signature="e#558#742#0" expanded="false" />
+            <element signature="e#744#2132#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -616,11 +619,9 @@
           <caret line="2" column="19" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
           <folding>
             <element signature="e#209#344#0" expanded="false" />
-            <element signature="e#346#398#0" expanded="false" />
-            <element signature="e#400#451#0" expanded="false" />
-            <element signature="e#453#663#0" expanded="false" />
-            <element signature="e#665#849#0" expanded="false" />
-            <element signature="e#851#2239#0" expanded="false" />
+            <element signature="e#346#556#0" expanded="false" />
+            <element signature="e#558#742#0" expanded="false" />
+            <element signature="e#744#2132#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -797,33 +798,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/serialordon.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="108" column="0" lean-forward="false" selection-start-line="108" selection-start-column="0" selection-end-line="115" selection-end-column="5" />
-          <folding>
-            <element signature="e#209#344#0" expanded="false" />
-            <element signature="e#346#398#0" expanded="false" />
-            <element signature="e#400#451#0" expanded="false" />
-            <element signature="e#453#663#0" expanded="false" />
-            <element signature="e#665#849#0" expanded="false" />
-            <element signature="e#851#2239#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/common.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="563">
-          <caret line="83" column="0" lean-forward="false" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
+        <state relative-caret-position="136">
+          <caret line="24" column="14" lean-forward="false" selection-start-line="24" selection-start-column="14" selection-end-line="24" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/commonordon.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="133" column="2" lean-forward="true" selection-start-line="133" selection-start-column="2" selection-end-line="133" selection-end-column="2" />
+        <state relative-caret-position="563">
+          <caret line="131" column="1" lean-forward="false" selection-start-line="131" selection-start-column="1" selection-end-line="131" selection-end-column="1" />
           <folding>
             <element signature="e#345#692#0" expanded="false" />
             <element signature="e#972#1015#0" expanded="false" />
@@ -834,21 +820,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../particles/mpi.cpp">
+    <entry file="file://$PROJECT_DIR$/serialordon.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="172">
+          <caret line="128" column="0" lean-forward="false" selection-start-line="128" selection-start-column="0" selection-end-line="129" selection-end-column="26" />
+          <folding>
+            <element signature="e#209#344#0" expanded="false" />
+            <element signature="e#346#556#0" expanded="false" />
+            <element signature="e#558#742#0" expanded="false" />
+            <element signature="e#744#2132#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mpiordon.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="94" column="41" lean-forward="true" selection-start-line="94" selection-start-column="41" selection-end-line="94" selection-end-column="41" />
+        <state relative-caret-position="291">
+          <caret line="175" column="39" lean-forward="true" selection-start-line="175" selection-start-column="39" selection-end-line="175" selection-end-column="39" />
           <folding>
             <element signature="e#0#16#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../particles/mpi.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="86" column="8" lean-forward="true" selection-start-line="86" selection-start-column="8" selection-end-line="86" selection-end-column="8" />
+          <folding />
         </state>
       </provider>
     </entry>
