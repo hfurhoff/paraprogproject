@@ -5,6 +5,7 @@
 #include <cmath>
 #include "common.h"
 
+particle_t *squareparticles;
 square_t **squares;
 square_t **previousSquares;
 double interval;
@@ -78,6 +79,32 @@ void putInSquare(particle_t* particle){
     //unlock
 }
 
+void applyForces(particle_t *particle, particle_t *sqParticles, int sizesteps, int spBuff){
+    int x = particle->sx;
+    int y = particle->sy;
+    particle->ax = particle-> ay = 0;
+    particle_t temp;
+    int first = (x + y * sizesteps) * spBuff;
+    int last = first + spBuff;
+    int i = first;
+
+    while (temp != nullptr && i < last) {
+        apply_force(*particle, &sqParticles[i]);
+        temp = temp->next;
+    }
+}
+
+void transferFromMatrixToArray(square_t *prevSquare, particle_t *sqParticles[], int spBuff){
+    int x = prevSquare->particles->p->sx;
+    int y = prevSquare->particles->p->sy;
+    int addedParticles = 0;
+    int sizesteps = getSizesteps();
+    int first = (x + y * sizesteps) * spBuff;
+    particle_node_t *temp = prevSquare->particles;
+    while(temp != nullptr && addedParticles < spBuff){
+        sqParticles[first + addedParticles] = temp->p;
+    }
+}
 
 //
 //  benchmarking program
@@ -117,18 +144,21 @@ int main( int argc, char **argv )
     interval = getIntervall();
     int squaresToClear = 0;
 
-    previousSquares = (square_t**) malloc(n * sizeof(square_t*));
-    squares = (square_t**) malloc(sizesteps * sizeof(square_t*));
-    for(int i = 0; i < sizesteps; i++){
-        squares[i] = (square_t*) malloc(sizesteps * sizeof(square_t));
-        if(rank == 0) {
-            for (int j = 0; j < sizesteps; j++) {
+    if(rank == 0) {
+        previousSquares = (square_t**) malloc(n * sizeof(square_t*));
+        squares = (square_t**) malloc(sizesteps * sizeof(square_t*));
+        for(int i = 0; i < sizesteps; i++){
+            squares[i] = (square_t*) malloc(sizesteps * sizeof(square_t));
+            for(int j = 0; j < sizesteps; j++){
                 initSquare(&squares[i][j]);
             }
         }
     }
-
-
+    int spbuffer = 20;
+    squareparticles = (particle_t*) malloc(sizesteps * sizesteps * spbuffer * sizeof(particle_t));
+    for(int i = 0; i < sizesteps * sizesteps * spbuffer; i++){
+        squareparticles[i] = nullptr;
+    }
 
     //
     //  allocate generic resources
@@ -140,16 +170,6 @@ int main( int argc, char **argv )
     MPI_Type_contiguous(2, MPI_INTEGER, &PARTICLE);
     MPI_Type_contiguous(1, MPI_CXX_BOOL, &PARTICLE);
     MPI_Type_commit( &PARTICLE );
-
-    MPI_Datatype PARTICLENODE;
-    MPI_Type_contiguous(1, PARTICLE, &PARTICLENODE);
-    MPI_Type_contiguous(1, PARTICLENODE, &PARTICLENODE);
-    MPI_Type_commit(&PARTICLENODE);
-
-    MPI_Datatype SQUARE;
-    MPI_Type_contiguous(2, MPI_CXX_BOOL, &SQUARE);
-    MPI_Type_contiguous(1, PARTICLENODE, &SQUARE);
-    MPI_Type_commit(&SQUARE);
 
     //
     //  set up the data partitioning across processors
@@ -195,23 +215,31 @@ int main( int argc, char **argv )
 
 
         if(rank == 0) {
+            for(int i = 0; i < sizesteps * sizesteps * spbuffer; i++){
+                squareparticles[i] = nullptr;
+            }
+
             for (int i = 0; i < squaresToClear; i++) {
                 clearSquare(previousSquares[i]);
             }
-            //Barrier will be needed when parallel
+
             for (int i = 0; i < n; i++) {
                 putInSquare(&particles[i]);
             }
+
+            for(int i = 0; i < squareCounter; i++){
+                transferFromMatrixToArray(previousSquares[i], &squareparticles, spbuffer);
+            }
         }
 
-        MPI_Bcast(squares, sizesteps, SQUARE, 0, MPI_COMM_WORLD);
+        MPI_Bcast(squareparticles, sizesteps * sizesteps * spbuffer, PARTICLE, 0, MPI_COMM_WORLD);
 
         //
         //  compute all forces
         //
         for( int i = 0; i < nlocal; i++ )
         {
-            applyForces(&local[i], squares);
+            applyForces(&local[i], squareparticles, sizesteps, spbuffer);
         }
 
         //
@@ -229,6 +257,8 @@ int main( int argc, char **argv )
     //
     //  release resources
     //
+    free(squares);
+    free(previousSquares);
     free( partition_offsets );
     free( partition_sizes );
     free( local );
