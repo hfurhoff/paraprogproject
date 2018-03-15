@@ -5,6 +5,7 @@
 #include <cmath>
 #include "common.h"
 
+bool *squareparticlesbools;
 particle_t *squareparticles;
 square_t **squares;
 square_t **previousSquares;
@@ -79,22 +80,23 @@ void putInSquare(particle_t* particle){
     //unlock
 }
 
-void applyForces(particle_t *particle, particle_t *sqParticles, int sizesteps, int spBuff){
+void applyForces(particle_t *particle, int sizesteps, int spBuff){
     int x = particle->sx;
     int y = particle->sy;
     particle->ax = particle-> ay = 0;
-    particle_t temp;
     int first = (x + y * sizesteps) * spBuff;
     int last = first + spBuff;
     int i = first;
+    particle_t temp = squareparticles[i];
+    bool cont = squareparticlesbools[i];
 
-    while (temp != nullptr && i < last) {
-        apply_force(*particle, &sqParticles[i]);
-        temp = temp->next;
+    while (cont && i < last) {
+        apply_force(*particle, squareparticles[i]);
+        cont = squareparticlesbools[++i];
     }
 }
 
-void transferFromMatrixToArray(square_t *prevSquare, particle_t *sqParticles[], int spBuff){
+void transferFromMatrixToArray(square_t *prevSquare, int spBuff){
     int x = prevSquare->particles->p->sx;
     int y = prevSquare->particles->p->sy;
     int addedParticles = 0;
@@ -102,7 +104,10 @@ void transferFromMatrixToArray(square_t *prevSquare, particle_t *sqParticles[], 
     int first = (x + y * sizesteps) * spBuff;
     particle_node_t *temp = prevSquare->particles;
     while(temp != nullptr && addedParticles < spBuff){
-        sqParticles[first + addedParticles] = temp->p;
+        squareparticles[first + addedParticles] = *temp->p;
+        squareparticlesbools[first + addedParticles] = true;
+        addedParticles++;
+        temp = temp->next;
     }
 }
 
@@ -138,7 +143,7 @@ int main( int argc, char **argv )
 
     set_size( n );
     particle_t *particles = (particle_t*) malloc( n * sizeof(particle_t) );
-    init_particles( n, particles );
+    if(rank == 0) init_particles( n, particles );
 
     int sizesteps = getSizesteps();
     interval = getIntervall();
@@ -156,8 +161,10 @@ int main( int argc, char **argv )
     }
     int spbuffer = 20;
     squareparticles = (particle_t*) malloc(sizesteps * sizesteps * spbuffer * sizeof(particle_t));
+    squareparticlesbools = (bool*) malloc(sizesteps * sizesteps * spbuffer * sizeof(bool));
     for(int i = 0; i < sizesteps * sizesteps * spbuffer; i++){
         squareparticles[i] = nullptr;
+        squareparticlesbools[i] = false;
     }
 
     //
@@ -217,6 +224,7 @@ int main( int argc, char **argv )
         if(rank == 0) {
             for(int i = 0; i < sizesteps * sizesteps * spbuffer; i++){
                 squareparticles[i] = nullptr;
+                squareparticlesbools[i] = false;
             }
 
             for (int i = 0; i < squaresToClear; i++) {
@@ -228,18 +236,19 @@ int main( int argc, char **argv )
             }
 
             for(int i = 0; i < squareCounter; i++){
-                transferFromMatrixToArray(previousSquares[i], &squareparticles, spbuffer);
+                transferFromMatrixToArray(previousSquares[i], spbuffer);
             }
         }
 
         MPI_Bcast(squareparticles, sizesteps * sizesteps * spbuffer, PARTICLE, 0, MPI_COMM_WORLD);
+        MPI_Bcast(squareparticlesbools, sizesteps * sizesteps * spbuffer, MPI_CXX_BOOL, 0, MPI_COMM_WORLD);
 
         //
         //  compute all forces
         //
         for( int i = 0; i < nlocal; i++ )
         {
-            applyForces(&local[i], squareparticles, sizesteps, spbuffer);
+            applyForces(&local[i], sizesteps, spbuffer);
         }
 
         //

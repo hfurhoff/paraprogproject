@@ -46,8 +46,8 @@
       <file leaf-file-name="mpiordon.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mpiordon.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="92" column="26" lean-forward="true" selection-start-line="92" selection-start-column="26" selection-end-line="92" selection-end-column="26" />
+            <state relative-caret-position="221">
+              <caret line="94" column="41" lean-forward="true" selection-start-line="94" selection-start-column="41" selection-end-line="94" selection-end-column="41" />
               <folding>
                 <element signature="e#0#16#0" expanded="true" />
               </folding>
@@ -58,8 +58,8 @@
       <file leaf-file-name="mpi.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../../particles/mpi.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1088">
-              <caret line="64" column="6" lean-forward="false" selection-start-line="64" selection-start-column="6" selection-end-line="64" selection-end-column="6" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -252,7 +252,7 @@
       <workItem from="1520322514201" duration="49008000" />
       <workItem from="1521022140586" duration="14710000" />
       <workItem from="1521060718938" duration="7897000" />
-      <workItem from="1521116281387" duration="2524000" />
+      <workItem from="1521116281387" duration="4564000" />
     </task>
     <task id="LOCAL-00001" summary="Peters Push">
       <created>1519906228155</created>
@@ -338,11 +338,18 @@
       <option name="project" value="LOCAL" />
       <updated>1521112359578</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="fortsatt med mpi">
+      <created>1521119069927</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1521119069927</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="125854000" />
+    <option name="totallyTimeSpent" value="127894000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="40" width="927" height="735" extended-state="0" />
@@ -404,7 +411,8 @@
     <MESSAGE value="pthreads funkar, openmp not so much" />
     <MESSAGE value="ändrade schduling med pytteliten förbättring" />
     <MESSAGE value="börjat med mpi" />
-    <option name="LAST_COMMIT_MESSAGE" value="börjat med mpi" />
+    <MESSAGE value="fortsatt med mpi" />
+    <option name="LAST_COMMIT_MESSAGE" value="fortsatt med mpi" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -789,14 +797,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../particles/mpi.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1088">
-          <caret line="64" column="6" lean-forward="false" selection-start-line="64" selection-start-column="6" selection-end-line="64" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/serialordon.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -834,10 +834,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../../particles/mpi.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/mpiordon.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="92" column="26" lean-forward="true" selection-start-line="92" selection-start-column="26" selection-end-line="92" selection-end-column="26" />
+        <state relative-caret-position="221">
+          <caret line="94" column="41" lean-forward="true" selection-start-line="94" selection-start-column="41" selection-end-line="94" selection-end-column="41" />
           <folding>
             <element signature="e#0#16#0" expanded="true" />
           </folding>
