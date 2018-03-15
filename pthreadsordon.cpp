@@ -31,68 +31,28 @@ int squaresToClear = 0;
 pthread_mutex_t countlock;
 pthread_mutex_t **squarelock;
 
-void initSquare(square_t *square){
-    square->trueNeighbours = false;
-    square->occupied = false;
-    square->particles = nullptr;
-}
-
-void clearSquare(square_t *previousSquare){
-    if(!previousSquare->occupied) return;
-    previousSquare->occupied = false;
-    previousSquare->trueNeighbours = false;
-    freeNodes(previousSquare->particles);
-    previousSquare->particles = nullptr;
-}
-
-void freeNodes(particle_node_t* destroyNode){
-    if(destroyNode->next == nullptr) free(destroyNode);
-    else{
-        freeNodes(destroyNode->next);
-        free(destroyNode);
-    }
-}
-
 void putInSquare(particle_t* particle){
     int x;
     int y;
-    x = particle->sx = static_cast<int>(std::floor(particle->x / interval));
-    y = particle->sy = static_cast<int>(std::floor(particle->y / interval));
-    particle->inMiddle = true;
+    x = static_cast<int>(std::floor(particle->x / interval));
+    y = static_cast<int>(std::floor(particle->y / interval));
 
     particle_node_t * ny;
     ny = (particle_node_t*) malloc(sizeof(particle_node_t));
     ny->p = particle;
 
-    //pthread_mutex_lock(&squarelock[x][y]);
     if(squares[x][y].particles == nullptr){
         ny->next = nullptr;
         squares[x][y].occupied = true;
-        //pthread_mutex_lock(&countlock);
         previousSquares[squareCounter++] = &squares[x][y];
-        //pthread_mutex_unlock(&countlock);
     }else {
         particle_node_t * rest;
         rest = squares[x][y].particles;
         ny->next = rest;
     }
     squares[x][y].particles = ny;
-    //pthread_mutex_unlock(&squarelock[x][y]);
-
-    if(x * interval <= particle->x && particle->x <= x * interval + cutoff){
-        squares[x][y].trueNeighbours = true;
-        particle->inMiddle = false;
-    } else if ((x + 1) * interval - cutoff <= particle->x && particle->x <= (x + 1) * interval) {
-        squares[x][y].trueNeighbours = true;
-        particle->inMiddle = false;
-    } else if(y * interval <= particle->y && particle->y <= y * interval + cutoff){
-        squares[x][y].trueNeighbours = true;
-        particle->inMiddle = false;
-    } else if ((y + 1) * interval - cutoff <= particle->y && particle->y <= (y + 1) * interval){
-        squares[x][y].trueNeighbours = true;
-        particle->inMiddle = false;
-    }
 }
+
 //
 //  This is where the action happens
 //

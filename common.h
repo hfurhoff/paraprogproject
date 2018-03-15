@@ -23,9 +23,6 @@ typedef struct
     double vy;
     double ax;
     double ay;
-    bool inMiddle;
-    int sx;
-    int sy;
 } particle_t;
 
 //
@@ -49,10 +46,6 @@ typedef struct
 
 
 //
-//
-//
-
-//
 //  timing routines
 //
 double read_timer( );
@@ -65,11 +58,9 @@ void init_particles( int n, particle_t *p );
 
 int getSizesteps();
 double getIntervall();
-void initSquare(square_t *squares);
-void resetSquareCounter();
+void initSquare(square_t *square);
 void clearSquare(square_t *previousSquare);
 void freeNodes(particle_node_t* destroyNode);
-void putInSquare(particle_t *particle);
 void applyForces(particle_t *particle, square_t (**squares));
 
 void apply_force( particle_t &particle, particle_t &neighbor );

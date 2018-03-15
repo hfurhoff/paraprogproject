@@ -10,38 +10,16 @@ double interval;
 double cutoff = 0.01;
 int squareCounter = 0;
 
-void initSquare(square_t *square){
-    square->trueNeighbours = false;
-    square->occupied = false;
-    square->particles = nullptr;
-}
-
-void clearSquare(square_t *previousSquare){
-    previousSquare->occupied = false;
-    previousSquare->trueNeighbours = false;
-    freeNodes(previousSquare->particles);
-    previousSquare->particles = nullptr;
-}
-
-void freeNodes(particle_node_t* destroyNode){
-    if(destroyNode->next == nullptr) free(destroyNode);
-    else{
-        freeNodes(destroyNode->next);
-        free(destroyNode);
-    }
-}
-
 void putInSquare(particle_t* particle){
     int x;
     int y;
-    x = particle->sx = static_cast<int>(std::floor(particle->x / interval));
-    y = particle->sy = static_cast<int>(std::floor(particle->y / interval));
-    particle->inMiddle = true;
+    x = static_cast<int>(std::floor(particle->x / interval));
+    y = static_cast<int>(std::floor(particle->y / interval));
 
     particle_node_t * ny;
     ny = (particle_node_t*) malloc(sizeof(particle_node_t));
     ny->p = particle;
-    //lock
+
     if(squares[x][y].particles == nullptr){
         ny->next = nullptr;
         squares[x][y].occupied = true;
@@ -52,23 +30,7 @@ void putInSquare(particle_t* particle){
         ny->next = rest;
     }
     squares[x][y].particles = ny;
-
-    if(x * interval <= particle->x && particle->x <= x * interval + cutoff){
-        squares[x][y].trueNeighbours = true;
-        particle->inMiddle = false;
-    } else if ((x + 1) * interval - cutoff <= particle->x && particle->x <= (x + 1) * interval) {
-        squares[x][y].trueNeighbours = true;
-        particle->inMiddle = false;
-    } else if(y * interval <= particle->y && particle->y <= y * interval + cutoff){
-        squares[x][y].trueNeighbours = true;
-        particle->inMiddle = false;
-    } else if ((y + 1) * interval - cutoff <= particle->y && particle->y <= (y + 1) * interval){
-        squares[x][y].trueNeighbours = true;
-        particle->inMiddle = false;
-    }
-    //unlock
 }
-
 //
 //  benchmarking program
 //
@@ -128,14 +90,12 @@ int main( int argc, char **argv )
 
         squaresToClear = squareCounter;
         squareCounter = 0;
-        //Barrier will be needed when parallel
         //
         //  move particles
         //
         for( int i = 0; i < n; i++ )
             move( particles[i] );
 
-        //Barrier will be needed when parallel
         //
         //  save if necessary
         //

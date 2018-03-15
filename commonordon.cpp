@@ -12,7 +12,7 @@ double size;
 double intervall;
 
 int sizesteps;
-//
+
 
 #define density 0.0005
 #define mass    0.01
@@ -35,6 +35,28 @@ double read_timer( )
     gettimeofday( &end, NULL );
     return (end.tv_sec - start.tv_sec) + 1.0e-6 * (end.tv_usec - start.tv_usec);
 }
+
+void initSquare(square_t *square){
+    square->trueNeighbours = false;
+    square->occupied = false;
+    square->particles = nullptr;
+}
+
+void clearSquare(square_t *previousSquare){
+    previousSquare->occupied = false;
+    previousSquare->trueNeighbours = false;
+    freeNodes(previousSquare->particles);
+    previousSquare->particles = nullptr;
+}
+
+void freeNodes(particle_node_t* destroyNode){
+    if(destroyNode->next == nullptr) free(destroyNode);
+    else{
+        freeNodes(destroyNode->next);
+        free(destroyNode);
+    }
+}
+
 
 
 //
@@ -96,39 +118,31 @@ void init_particles( int n, particle_t *p )
 }
 
 void applyForces(particle_t *particle, square_t (**squares)){
-    int x = particle->sx;
-    int y = particle->sy;
+    int x;
+    int y;
+    x = static_cast<int>(std::floor(particle->x / intervall));
+    y = static_cast<int>(std::floor(particle->y / intervall));
     particle->ax = particle-> ay = 0;
     particle_node_t *temp;
 
+    int tempX;
+    int tempY;
+    int maxX,maxY;
+    if(x > 0) tempX = x - 1; else tempX = x;
+    if(y > 0) tempY = y - 1; else tempY = y;
+    if(x < sizesteps - 1) maxX = x + 2; else maxX = sizesteps;
+    if(y < sizesteps - 1) maxY = y + 2; else maxY = sizesteps;
 
-    if(particle->inMiddle) {
-        temp = squares[x][y].particles;
-        while (temp != nullptr) {
-            apply_force(*particle, *temp->p);
-            temp = temp->next;
-        }
-    }else{
-        int tempX;
-        int tempY;
-        int maxX,maxY;
-        if(x > 0) tempX = x - 1; else tempX = x;
-        if(y > 0) tempY = y - 1; else tempY = y;
-        if(x < sizesteps - 1) maxX = x + 2; else maxX = sizesteps;
-        if(y < sizesteps - 1) maxY = y + 2; else maxY = sizesteps;
-
-        for (int i = tempX; i < maxX; i++) {
-            for (int j = tempY; j < maxY; j++) {
-                if (squares[i][j].trueNeighbours) {
-                    temp = squares[i][j].particles;
-                    while (temp != nullptr) {
-                        apply_force(*particle, *temp->p);
-                        temp = temp->next;
-                    }
-                }
+    for (int i = tempX; i < maxX; i++) {
+        for (int j = tempY; j < maxY; j++) {
+            temp = squares[i][j].particles;
+            while (temp != nullptr) {
+                apply_force(*particle, *temp->p);
+                temp = temp->next;
             }
         }
     }
+    //}
 }
 
 //
@@ -222,4 +236,3 @@ char *read_string( int argc, char **argv, const char *option, char *default_valu
         return argv[iplace+1];
     return default_value;
 }
-

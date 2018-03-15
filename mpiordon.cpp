@@ -5,33 +5,11 @@
 #include <math.h>
 #include "common.h"
 
-void initSquare(square_t *square){
-    square->trueNeighbours = false;
-    square->occupied = false;
-    square->particles = nullptr;
-}
-
-void clearSquare(square_t *previousSquare){
-    previousSquare->occupied = false;
-    previousSquare->trueNeighbours = false;
-    freeNodes(previousSquare->particles);
-    previousSquare->particles = nullptr;
-}
-
-void freeNodes(particle_node_t* destroyNode){
-    if(destroyNode->next == nullptr) free(destroyNode);
-    else{
-        freeNodes(destroyNode->next);
-        free(destroyNode);
-    }
-}
-
 void putInSquare(particle_t* particle, square_t **squares, square_t **previousSquares, double interval, double cutoff, int *squareCounter){
     int x;
     int y;
-    x = particle->sx = static_cast<int>(std::floor(particle->x / interval));
-    y = particle->sy = static_cast<int>(std::floor(particle->y / interval));
-    particle->inMiddle = true;
+    x = static_cast<int>(std::floor(particle->x / interval));
+    y = static_cast<int>(std::floor(particle->y / interval));
 
     particle_node_t * ny;
     ny = (particle_node_t*) malloc(sizeof(particle_node_t));
@@ -48,22 +26,7 @@ void putInSquare(particle_t* particle, square_t **squares, square_t **previousSq
         ny->next = rest;
     }
     squares[x][y].particles = ny;
-
-    if(x * interval <= particle->x && particle->x <= x * interval + cutoff){
-        squares[x][y].trueNeighbours = true;
-        particle->inMiddle = false;
-    } else if ((x + 1) * interval - cutoff <= particle->x && particle->x <= (x + 1) * interval) {
-        squares[x][y].trueNeighbours = true;
-        particle->inMiddle = false;
-    } else if(y * interval <= particle->y && particle->y <= y * interval + cutoff){
-        squares[x][y].trueNeighbours = true;
-        particle->inMiddle = false;
-    } else if ((y + 1) * interval - cutoff <= particle->y && particle->y <= (y + 1) * interval){
-        squares[x][y].trueNeighbours = true;
-        particle->inMiddle = false;
-    }
 }
-
 
 //
 //  benchmarking program
@@ -81,6 +44,8 @@ int main( int argc, char **argv )
         printf( "-o <filename> to specify the output file name\n" );
         return 0;
     }
+
+    printf("MPI RUN");
 
     int n = read_int( argc, argv, "-n", 1000 );
     char *savename = read_string( argc, argv, "-o", NULL );
@@ -127,6 +92,7 @@ int main( int argc, char **argv )
     set_size( n );
     if( rank == 0 )
         init_particles( n, particles );
+
     MPI_Scatterv( particles, partition_sizes, partition_offsets, PARTICLE, local, nlocal, PARTICLE, 0, MPI_COMM_WORLD );
 
     square_t **squares;
@@ -198,6 +164,14 @@ int main( int argc, char **argv )
     //
     //  release resources
     //
+    for(int i = 0; i < squaresToClear; i++) {
+        clearSquare(previousSquares[i]);
+    }
+    free(previousSquares);
+    for(int i = 0; i < sizesteps; i++){
+        free(squares[i]);
+    }
+    free(squares);
     free( partition_offsets );
     free( partition_sizes );
     free( local );
